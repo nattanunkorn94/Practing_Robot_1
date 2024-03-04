@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-04T14:13:43.152660" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-04T14:56:27.819018" rpa="false" schemaversion="5">
 <suite id="s1" name="Practing Robot 1" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1">
 <suite id="s1-s1" name="Test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test">
 <suite id="s1-s1-s1" name="ToDoList" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoList.robot">
 <test id="s1-s1-s1-t1" name="Open Web" line="21">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-03-04T14:13:43.471969" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
-<msg time="2024-03-04T14:13:43.475383" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<msg time="2024-03-04T14:56:28.687046" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
+<msg time="2024-03-04T14:56:28.695155" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
 <arg>${url_facebook}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-03-04T14:13:43.471558" elapsed="6.013527"/>
+<status status="PASS" start="2024-03-04T14:56:28.685387" elapsed="16.563277"/>
 </kw>
-<status status="PASS" start="2024-03-04T14:13:43.470051" elapsed="6.016650"/>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<msg time="2024-03-04T14:56:45.257498" level="FAIL">Keyword 'SeleniumLibrary.Wait Until Element Contains' expected 2 to 4 arguments, got 1.</msg>
+<arg>//h1[text()='Todo List'] ${title_H1}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="FAIL" start="2024-03-04T14:56:45.253196" elapsed="0.006933">Keyword 'SeleniumLibrary.Wait Until Element Contains' expected 2 to 4 arguments, got 1.</status>
+</kw>
+<kw name="Verify facebook page">
+<arg>${title_H1}</arg>
+<status status="NOT RUN" start="2024-03-04T14:56:45.262445" elapsed="0.000513"/>
+</kw>
+<status status="FAIL" start="2024-03-04T14:56:28.681866" elapsed="16.582101">Keyword 'SeleniumLibrary.Wait Until Element Contains' expected 2 to 4 arguments, got 1.</status>
 </test>
-<status status="PASS" start="2024-03-04T14:13:43.227659" elapsed="6.260186"/>
+<status status="FAIL" start="2024-03-04T14:56:27.995553" elapsed="17.275297"/>
 </suite>
-<status status="PASS" start="2024-03-04T14:13:43.225533" elapsed="6.264328"/>
+<status status="FAIL" start="2024-03-04T14:56:27.988779" elapsed="17.286463"/>
 </suite>
-<status status="PASS" start="2024-03-04T14:13:43.160692" elapsed="6.331931"/>
+<status status="FAIL" start="2024-03-04T14:56:27.839388" elapsed="17.439660"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test">Practing Robot 1.Test</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="ToDoList">Practing Robot 1.Test.ToDoList</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test">Practing Robot 1.Test</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="ToDoList">Practing Robot 1.Test.ToDoList</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-03-04T14:13:43.142567" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoList.robot' on line 8: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+<msg time="2024-03-04T14:56:27.796654" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoList.robot' on line 8: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
 </errors>
 </robot>
