@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-04T16:02:07.405999" rpa="false" schemaversion="5">
+<suite id="s1" name="ToDoList" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoList.robot">
+<test id="s1-t1" name="Open Right Page" line="21">
+<kw name="Open Page Todo">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-04T16:02:08.107373" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
+<msg time="2024-03-04T16:02:08.120295" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<arg>${url_facebook}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-04T16:02:08.106748" elapsed="12.538769"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//h1[text()='Todo List']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-04T16:02:20.646817" elapsed="0.081500"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//b[text()='Add Todo']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-04T16:02:20.728890" elapsed="0.044661"/>
+</kw>
+<status status="PASS" start="2024-03-04T16:02:08.104213" elapsed="12.669810"/>
+</kw>
+<kw name="Add Todo List">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-04T16:02:20.776735" level="INFO">Typing text 'eating dinner' into text field '//input[@data-testid='inputTodo']'.</msg>
+<arg>//input[@data-testid='inputTodo']</arg>
+<arg>${txt_message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-04T16:02:20.776032" elapsed="0.233145"/>
+</kw>
+<status status="PASS" start="2024-03-04T16:02:20.775087" elapsed="0.235043"/>
+</kw>
+<status status="PASS" start="2024-03-04T16:02:08.103070" elapsed="12.907900"/>
+</test>
+<status status="PASS" start="2024-03-04T16:02:07.485622" elapsed="13.528089"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="ToDoList">ToDoList</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-03-04T16:02:07.383128" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoList.robot' on line 8: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+</errors>
+</robot>
