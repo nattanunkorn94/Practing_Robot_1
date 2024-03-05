@@ -1,75 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-05T16:36:37.397463" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-05T17:30:11.071070" rpa="false" schemaversion="5">
 <suite id="s1" name="Practing Robot 1" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1">
 <suite id="s1-s1" name="Test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test">
 <suite id="s1-s1-s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
-<test id="s1-s1-s1-t1" name="สมัคร Form สำเร็จ" line="18">
-<kw name="กรอกข้อมูล username" owner="KeyWord">
+<test id="s1-s1-s1-t1" name="User เข้าไปทำการเพิ่ม ToDo List" line="12">
+<kw name="Open ToDoList Page" owner="KeyWord">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-03-05T16:36:38.291690" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/form-demo'.</msg>
-<msg time="2024-03-05T16:36:38.297037" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
-<arg>${url_form}</arg>
+<msg time="2024-03-05T17:30:11.590655" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
+<msg time="2024-03-05T17:30:11.593527" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<arg>${url_todo}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-03-05T16:36:38.291051" elapsed="11.097582"/>
+<status status="PASS" start="2024-03-05T17:30:11.590093" elapsed="9.442593"/>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-03-05T16:36:49.389934" elapsed="0.465850"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//h1[text()='Todo List']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-05T17:30:21.034014" elapsed="0.334866"/>
 </kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//b[text()='Add Todo']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-05T17:30:21.369407" elapsed="0.096522"/>
+</kw>
+<status status="PASS" start="2024-03-05T17:30:11.588746" elapsed="9.877522"/>
+</kw>
+<kw name="เพิ่ม Todo List 'ทำการบ้าน'" owner="KeyWord" source_name="เพิ่ม Todo List '${message-1}'">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-05T16:36:49.857674" level="INFO">Typing text 'cake@gmail.com' into text field '//label[text()='username*']/following::input'.</msg>
-<arg>//label[text()='username*']/following::input</arg>
-<arg>${username001}</arg>
+<msg time="2024-03-05T17:30:21.468276" level="INFO">Typing text 'ทำการบ้าน' into text field '//input[@data-testid='inputTodo']'.</msg>
+<arg>//input[@data-testid='inputTodo']</arg>
+<arg>${message-1}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T16:36:49.856344" elapsed="1.070934"/>
+<status status="PASS" start="2024-03-05T17:30:21.467665" elapsed="0.126902"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-05T16:36:50.928328" level="INFO">Typing text 'kunA' into text field '//label[text()='firstname*']/following::input'.</msg>
-<arg>//label[text()='firstname*']/following::input</arg>
-<arg>${firstname001}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T16:36:50.927720" elapsed="0.355442"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-05T17:30:21.595531" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T17:30:21.595045" elapsed="0.439621"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-05T16:36:51.284517" level="INFO">Typing text 'lastnameA' into text field '//label[text()='lastname*']/following-sibling::input'.</msg>
-<arg>//label[text()='lastname*']/following-sibling::input</arg>
-<arg>${lastname001}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T16:36:51.283709" elapsed="0.359876"/>
+<status status="PASS" start="2024-03-05T17:30:21.466827" elapsed="0.568230"/>
 </kw>
-<status status="PASS" start="2024-03-05T16:36:38.288510" elapsed="13.355731"/>
-</kw>
-<kw name="เลือกเพศ 'Female'" owner="KeyWord" source_name="เลือกเพศ '${gender}'">
+<kw name="ทำ todo list เสร็จทั้งหมด 'ทำการบ้าน'" owner="KeyWord" source_name="ทำ todo list เสร็จทั้งหมด '${message-1}'">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-05T16:36:51.646894" level="INFO">Clicking element '//input[@value='Female']'.</msg>
-<arg>//input[@value='${gender}']</arg>
+<msg time="2024-03-05T17:30:22.036690" level="INFO">Clicking element '//span[text()='ทำการบ้าน']'.</msg>
+<arg>//span[text()='${message-1}']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T16:36:51.646270" elapsed="0.284274"/>
+<status status="PASS" start="2024-03-05T17:30:22.036020" elapsed="0.233683"/>
 </kw>
-<status status="PASS" start="2024-03-05T16:36:51.645252" elapsed="0.285601"/>
-</kw>
-<kw name="เลือกประเทศ" owner="KeyWord">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-05T16:36:51.932424" level="INFO">Clicking element '//input[@type='checkbox']'.</msg>
-<arg>//input[@type='checkbox']</arg>
+<msg time="2024-03-05T17:30:22.270667" level="INFO">Clicking element '//span[text()='This is a sampel todo']'.</msg>
+<arg>//span[text()='This is a sampel todo']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T16:36:51.931966" elapsed="0.224409"/>
+<status status="PASS" start="2024-03-05T17:30:22.270116" elapsed="0.311591"/>
 </kw>
-<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
-<msg time="2024-03-05T16:36:52.157263" level="INFO">Verifying checkbox '//input[@type='checkbox']' is selected.</msg>
-<arg>//input[@type='checkbox']</arg>
-<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
-<status status="PASS" start="2024-03-05T16:36:52.156807" elapsed="0.032983"/>
+<status status="PASS" start="2024-03-05T17:30:22.035422" elapsed="0.546605"/>
 </kw>
-<status status="PASS" start="2024-03-05T16:36:51.931310" elapsed="0.258759"/>
-</kw>
-<status status="PASS" start="2024-03-05T16:36:38.283712" elapsed="13.907305"/>
+<status status="PASS" start="2024-03-05T17:30:11.587264" elapsed="10.995241"/>
 </test>
-<status status="PASS" start="2024-03-05T16:36:37.488487" elapsed="14.703894"/>
+<status status="PASS" start="2024-03-05T17:30:11.291905" elapsed="11.292372"/>
 </suite>
-<status status="PASS" start="2024-03-05T16:36:37.478680" elapsed="14.716346"/>
+<status status="PASS" start="2024-03-05T17:30:11.289555" elapsed="11.296505"/>
 </suite>
-<status status="PASS" start="2024-03-05T16:36:37.405152" elapsed="14.791264"/>
+<status status="PASS" start="2024-03-05T17:30:11.077237" elapsed="11.510165"/>
 </suite>
 <statistics>
 <total>
@@ -84,6 +76,6 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2024-03-05T16:36:38.274397" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/data-valid.robot' on line 4: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+<msg time="2024-03-05T17:30:11.583688" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/data-valid.robot' on line 4: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
 </errors>
 </robot>

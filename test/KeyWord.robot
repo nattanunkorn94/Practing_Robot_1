@@ -35,30 +35,24 @@ Open ToDoList Page
 #     Input Text       ${xpath_pass}       ${password}
 #
 
-เพิ่ม Todo List
+เพิ่ม Todo List '${message-1}'
     # [Arguments]       ${btn}
     Input Text  //input[@data-testid='inputTodo']   ${message-1} 
     Click Button  //button[@type='submit']
-    Input Text  //input[@data-testid='inputTodo']   ${message-2}
-    Click Button  //button[@type='submit']
-    Input Text  //input[@data-testid='inputTodo']   ${message-3}  
-    Click Button  //button[@type='submit']
-
-ทำ todo list เสร็จทั้งหมด
     
-    # Element Text Should Be     (//div[@class='todo']//span)[2]   ${message-1}  # robotcode: ignore
+
+ทำ todo list เสร็จทั้งหมด '${message-1}'
+    # VAR    ${a}      //span[text()='This is a sampel todo'] 
+    # IF  ${message-1} ==  ${message-1}
+    #     Click Element  //button[text()='✓']
+    # END
+    
+    Click Element   //span[text()='${message-1}']    # robotcode: ignore
     # Click Button   //button[@data-testid='markDone']    
     # Click Button   //button[@data-testid='markDone']
-    Click Button   (//button[text()='✓'])[1]
-    Click Button   (//button[text()='✓'])[2]
-    Click Button   (//button[text()='✓'])[3]
-    # Scroll Element Into View     (//button[text()='✓'])[4]
-    # Click Button   (//button[text()='✓'])[4]
-    #  ${message-1}  == Get Text 
-    # //span[text()='This is a sampel todo']
-    # IF  Get Text //div[@class='todo'])[3] == ${message-1} 
-    #    Click Button   //button[@data-testid='markDone']   
-    # END
+    Click Element   //span[text()='This is a sampel todo']  
+    # Click Button   (//button[text()='✓'])[1]
+
 
 # For Loop
 #     # ${BB} =    Get Element Count     //button[text()='✓']      
@@ -66,22 +60,22 @@ Open ToDoList Page
 #     Click Button   (//button[text()='✓'])[${i}]
 #     END
 
-กรอกข้อมูล username 
+กรอกข้อมูล user '${username}' '${firstname}' '${lastname}'
     Open Browser    ${url_form} 
     Maximize Browser Window
-    Input Text     //label[text()='username*']/following::input    ${username001}
-    Input Text    //label[text()='firstname*']/following::input    ${firstname001} 
-    Input Text    //label[text()='lastname*']/following-sibling::input    ${lastname001}  
+    Input Text     //label[text()='username*']/following::input    ${username}
+    Input Text    //label[text()='firstname*']/following::input    ${firstname} 
+    Input Text    //label[text()='lastname*']/following-sibling::input    ${lastname}  
+
 
 เลือกเพศ '${gender}'
      Click Element    //input[@value='${gender}']
 
-เลือกประเทศ 
-    # Click Element      //label[@class='form-label']/following-sibling::select[1]  
-       
-    Checkbox Should Be Selected        //input[@type='checkbox']
-    # Select From List By Label   //label[@class='form-label']/following-sibling::select[1]    "Hongkong"  
+เลือกประเทศ '${country}'
+    Select From List By Label   //label[@class='form-label']/following-sibling::select[1]       ${country}   
 
-เลือกเงื่อนไข
-    Click Element     //input[@type='checkbox']  
-    
+เลือกเงื่อนไขและsubmit
+    Click Element     //input[@type='checkbox'] 
+    Click Element    //button[@type='submit']     
+
+

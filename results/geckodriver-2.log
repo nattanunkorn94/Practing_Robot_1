@@ -1,20 +1,16 @@
-1709631250188	geckodriver	INFO	Listening on 127.0.0.1:59685
-1709631250579	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofile4BwoHr"
+1709632977048	geckodriver	INFO	Listening on 127.0.0.1:55954
+1709632977531	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofileSAsHLf"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1709631252231	Marionette	INFO	Marionette enabled
+1709632978937	Marionette	INFO	Marionette enabled
 console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
-1709631252761	Marionette	INFO	Listening on port 59704
-Read port: 59704
-WebDriver BiDi listening on ws://127.0.0.1:59686
-1709631253357	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:59686/devtools/browser/970c3646-38c5-4610-ba34-0989b841949b
-JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 3770: TypeError: this._windows[aWindow.__SSi] is undefined
-JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c, line 161: Script terminated by timeout at:
-l@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:161:17
-mB@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:492:134
-nB/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:492:111
+1709632979521	Marionette	INFO	Listening on port 55961
+WebDriver BiDi listening on ws://127.0.0.1:55955
+Read port: 55961
+1709632980093	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:55955/devtools/browser/45168c39-0507-47b0-95b1-1449713a3ccb
+1709633008971	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://web-demo.qahive.com/static/js/main.ef91fa3b.js, line 1: Script terminated by timeout at:
+Wa@https://web-demo.qahive.com/static/js/main.ef91fa3b.js:1:94447
 
-1709631281766	Marionette	INFO	Stopped listening on port 59704
-console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
-console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+1709633017603	Marionette	INFO	Stopped listening on port 55961
