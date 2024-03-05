@@ -1,0 +1,27 @@
+1709631246745	geckodriver	INFO	Listening on 127.0.0.1:56700
+1709631247071	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofilexQlBrH"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1709631248893	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1709631249536	Marionette	INFO	Listening on port 59683
+WebDriver BiDi listening on ws://127.0.0.1:56701
+Read port: 59683
+1709631250504	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56701/devtools/browser/ca90599b-5b81-4972-8537-56b09344e722
+JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 3770: TypeError: this._windows[aWindow.__SSi] is undefined
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c, line 200: Script terminated by timeout at:
+Td/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:200:188
+ed.prototype.invoke@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:181:976
+r@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:182:40
+oB@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:494:149
+mB/</<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:492:187
+l@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:161:62
+mB/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:492:167
+l@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:161:62
+mB@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:492:134
+nB/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:492:111
+
+1709631274516	Marionette	INFO	Stopped listening on port 59683
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."

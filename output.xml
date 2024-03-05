@@ -1,40 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-04T16:02:07.405999" rpa="false" schemaversion="5">
-<suite id="s1" name="ToDoList" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoList.robot">
-<test id="s1-t1" name="Open Right Page" line="21">
-<kw name="Open Page Todo">
+<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-05T16:36:30.131275" rpa="false" schemaversion="5">
+<suite id="s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
+<test id="s1-t1" name="สมัคร Form สำเร็จ" line="18">
+<kw name="กรอกข้อมูล username" owner="KeyWord">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-03-04T16:02:08.107373" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
-<msg time="2024-03-04T16:02:08.120295" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
-<arg>${url_facebook}</arg>
+<msg time="2024-03-05T16:36:31.732428" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/form-demo'.</msg>
+<msg time="2024-03-05T16:36:31.755538" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<arg>${url_form}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-03-04T16:02:08.106748" elapsed="12.538769"/>
+<status status="PASS" start="2024-03-05T16:36:31.688856" elapsed="12.582894"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//h1[text()='Todo List']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T16:02:20.646817" elapsed="0.081500"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-03-05T16:36:44.275391" elapsed="0.613041"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//b[text()='Add Todo']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T16:02:20.728890" elapsed="0.044661"/>
-</kw>
-<status status="PASS" start="2024-03-04T16:02:08.104213" elapsed="12.669810"/>
-</kw>
-<kw name="Add Todo List">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-04T16:02:20.776735" level="INFO">Typing text 'eating dinner' into text field '//input[@data-testid='inputTodo']'.</msg>
-<arg>//input[@data-testid='inputTodo']</arg>
-<arg>${txt_message}</arg>
+<msg time="2024-03-05T16:36:44.891766" level="INFO">Typing text 'cake@gmail.com' into text field '//label[text()='username*']/following::input'.</msg>
+<arg>//label[text()='username*']/following::input</arg>
+<arg>${username001}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-04T16:02:20.776032" elapsed="0.233145"/>
+<status status="PASS" start="2024-03-05T16:36:44.889518" elapsed="1.306376"/>
 </kw>
-<status status="PASS" start="2024-03-04T16:02:20.775087" elapsed="0.235043"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:46.197161" level="INFO">Typing text 'kunA' into text field '//label[text()='firstname*']/following::input'.</msg>
+<arg>//label[text()='firstname*']/following::input</arg>
+<arg>${firstname001}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:46.196559" elapsed="0.662987"/>
 </kw>
-<status status="PASS" start="2024-03-04T16:02:08.103070" elapsed="12.907900"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:46.861102" level="INFO">Typing text 'lastnameA' into text field '//label[text()='lastname*']/following-sibling::input'.</msg>
+<arg>//label[text()='lastname*']/following-sibling::input</arg>
+<arg>${lastname001}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:46.860306" elapsed="0.611357"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:31.675483" elapsed="15.796675"/>
+</kw>
+<kw name="เลือกเพศ 'Female'" owner="KeyWord" source_name="เลือกเพศ '${gender}'">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:47.475864" level="INFO">Clicking element '//input[@value='Female']'.</msg>
+<arg>//input[@value='${gender}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:47.474808" elapsed="0.332697"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:47.473412" elapsed="0.334543"/>
+</kw>
+<kw name="เลือกประเทศ" owner="KeyWord">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:47.810613" level="INFO">Clicking element '//input[@type='checkbox']'.</msg>
+<arg>//input[@type='checkbox']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:47.810108" elapsed="0.267846"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:48.079622" level="INFO">Verifying checkbox '//input[@type='checkbox']' is selected.</msg>
+<arg>//input[@type='checkbox']</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2024-03-05T16:36:48.078804" elapsed="0.042315"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:47.809171" elapsed="0.312630"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:31.672374" elapsed="16.451068"/>
 </test>
-<status status="PASS" start="2024-03-04T16:02:07.485622" elapsed="13.528089"/>
+<status status="PASS" start="2024-03-05T16:36:30.143115" elapsed="17.986153"/>
 </suite>
 <statistics>
 <total>
@@ -43,10 +72,10 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="ToDoList">ToDoList</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="ToDoPage">ToDoPage</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-03-04T16:02:07.383128" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoList.robot' on line 8: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+<msg time="2024-03-05T16:36:31.664689" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/data-valid.robot' on line 4: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
 </errors>
 </robot>

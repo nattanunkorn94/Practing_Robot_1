@@ -9,28 +9,19 @@ Resource   KeyWord.robot
 
 
 *** Test Cases ***
-Open Right Page
-    Open Page Todo
-    Add Todo List
-    # Open Browser    ${url_facebook}
-    # Wait Until Element Is Visible   //h1[text()='Todo List']
-    # Wait Until Element Is Visible  //b[text()='Add Todo']
-  
-# Login facebook - Fail
-#     [tags]    fail
-#     Go To           ${url_facebook}
-    # Verify facebook page           ${title_H1}
-#     Input Username and Password    ${input_user}     ${input_pass}       ${username_fail}      ${password_fail}
-#     Click Button Login          ${btn_login}
-#     Verify Login Fail
+User เข้าไปทำการเพิ่ม ToDo List 
+    Open ToDoList Page
+    เพิ่ม Todo List
+    ทำ todo list เสร็จทั้งหมด
 
-# Login facebook - success
-#     [tags]    success
-#     Go To           ${url_facebook}
-#     Verify facebook page           ${title_H1}
-#     Input Username and Password    ${input_user}     ${input_pass}       ${username_success}      ${password_success}
-#     Click Button Login          ${btn_login}
-#     Verify Login Success           ${txt_message}
+
+สมัคร Form สำเร็จ
+    กรอกข้อมูล username 
+    เลือกเพศ 'Female'
+    เลือกประเทศ 
+
+
+
 
 
 

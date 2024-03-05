@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-05T16:36:37.397463" rpa="false" schemaversion="5">
+<suite id="s1" name="Practing Robot 1" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1">
+<suite id="s1-s1" name="Test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test">
+<suite id="s1-s1-s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
+<test id="s1-s1-s1-t1" name="สมัคร Form สำเร็จ" line="18">
+<kw name="กรอกข้อมูล username" owner="KeyWord">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:38.291690" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/form-demo'.</msg>
+<msg time="2024-03-05T16:36:38.297037" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<arg>${url_form}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-05T16:36:38.291051" elapsed="11.097582"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-03-05T16:36:49.389934" elapsed="0.465850"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:49.857674" level="INFO">Typing text 'cake@gmail.com' into text field '//label[text()='username*']/following::input'.</msg>
+<arg>//label[text()='username*']/following::input</arg>
+<arg>${username001}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:49.856344" elapsed="1.070934"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:50.928328" level="INFO">Typing text 'kunA' into text field '//label[text()='firstname*']/following::input'.</msg>
+<arg>//label[text()='firstname*']/following::input</arg>
+<arg>${firstname001}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:50.927720" elapsed="0.355442"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:51.284517" level="INFO">Typing text 'lastnameA' into text field '//label[text()='lastname*']/following-sibling::input'.</msg>
+<arg>//label[text()='lastname*']/following-sibling::input</arg>
+<arg>${lastname001}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:51.283709" elapsed="0.359876"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:38.288510" elapsed="13.355731"/>
+</kw>
+<kw name="เลือกเพศ 'Female'" owner="KeyWord" source_name="เลือกเพศ '${gender}'">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:51.646894" level="INFO">Clicking element '//input[@value='Female']'.</msg>
+<arg>//input[@value='${gender}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:51.646270" elapsed="0.284274"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:51.645252" elapsed="0.285601"/>
+</kw>
+<kw name="เลือกประเทศ" owner="KeyWord">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:51.932424" level="INFO">Clicking element '//input[@type='checkbox']'.</msg>
+<arg>//input[@type='checkbox']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-05T16:36:51.931966" elapsed="0.224409"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2024-03-05T16:36:52.157263" level="INFO">Verifying checkbox '//input[@type='checkbox']' is selected.</msg>
+<arg>//input[@type='checkbox']</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2024-03-05T16:36:52.156807" elapsed="0.032983"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:51.931310" elapsed="0.258759"/>
+</kw>
+<status status="PASS" start="2024-03-05T16:36:38.283712" elapsed="13.907305"/>
+</test>
+<status status="PASS" start="2024-03-05T16:36:37.488487" elapsed="14.703894"/>
+</suite>
+<status status="PASS" start="2024-03-05T16:36:37.478680" elapsed="14.716346"/>
+</suite>
+<status status="PASS" start="2024-03-05T16:36:37.405152" elapsed="14.791264"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test">Practing Robot 1.Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="ToDoPage">Practing Robot 1.Test.ToDoPage</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-03-05T16:36:38.274397" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/data-valid.robot' on line 4: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+</errors>
+</robot>

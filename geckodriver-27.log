@@ -1,0 +1,36 @@
+1709629367834	geckodriver	INFO	Listening on 127.0.0.1:61361
+1709629368274	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofileY42QBi"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1709629369491	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1709629369769	Marionette	INFO	Listening on port 64942
+WebDriver BiDi listening on ws://127.0.0.1:61362
+Read port: 64942
+1709629370295	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:61362/devtools/browser/9fb2fbef-43cb-45a5-8c07-1f49bd7ba636
+JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 3770: TypeError: this._windows[aWindow.__SSi] is undefined
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c, line 350: Script terminated by timeout at:
+Nn@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:350:320
+XG@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:591:725
+aa.bn@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:594:202
+aa.Zm/</<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:594:134
+il@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:315:26
+wl@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:317:156
+aa.Zm/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:594:120
+c@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:418:169
+dt@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:419:269
+aa.Zm@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:594:106
+c@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:612:917
+um@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:324:298
+tm.prototype.flush@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:327:266
+tm.prototype.push@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:325:207
+mm@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:322:636
+oH/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:613:178
+aa.Yk/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:563:126
+aa.Yk/c/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:562:420
+
+1709629399512	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1709629480930	Marionette	INFO	Stopped listening on port 64942
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."

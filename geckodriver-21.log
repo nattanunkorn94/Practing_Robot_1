@@ -1,0 +1,13 @@
+1709629015020	geckodriver	INFO	Listening on 127.0.0.1:62449
+1709629015300	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofile8j5aE5"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1709629016886	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1709629017722	Marionette	INFO	Listening on port 63288
+WebDriver BiDi listening on ws://127.0.0.1:62451
+Read port: 63288
+1709629018154	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:62451/devtools/browser/eab4ef46-e82e-4746-9261-de453e2a54bf
+1709629046919	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1709629115920	Marionette	INFO	Stopped listening on port 63288
