@@ -20,6 +20,11 @@ User เข้าไปทำการเพิ่ม ToDo List
     เลือกเพศ 'Female'
     เลือกประเทศ 'Thailand'
     เลือกเงื่อนไขและsubmit
+
+
+เปิดหน้า generate
+    # เปิดหน้า generate
+    open Exel Sheet
     
 
 

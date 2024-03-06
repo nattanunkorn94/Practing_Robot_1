@@ -1,73 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-05T17:30:10.020999" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-06T13:18:08.656151" rpa="false" schemaversion="5">
 <suite id="s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
-<test id="s1-t1" name="User เข้าไปทำการเพิ่ม ToDo List" line="12">
-<kw name="Open ToDoList Page" owner="KeyWord">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-03-05T17:30:10.541388" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
-<msg time="2024-03-05T17:30:10.559779" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
-<arg>${url_todo}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-03-05T17:30:10.540763" elapsed="9.776567"/>
+<test id="s1-t1" name="เปิดหน้า generate" line="25">
+<kw name="open Exel Sheet" owner="KeyWord">
+<kw name="Open Workbook">
+<msg time="2024-03-06T13:18:09.261403" level="FAIL">No keyword with name 'Open Workbook' found.</msg>
+<arg>/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/../RPA Core Service App.cvs</arg>
+<status status="FAIL" start="2024-03-06T13:18:09.261112" elapsed="0.011928">No keyword with name 'Open Workbook' found.</status>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//h1[text()='Todo List']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-05T17:30:20.319356" elapsed="0.124096"/>
+<status status="FAIL" start="2024-03-06T13:18:09.250303" elapsed="0.023424">No keyword with name 'Open Workbook' found.</status>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//b[text()='Add Todo']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-05T17:30:20.444107" elapsed="0.130386"/>
-</kw>
-<status status="PASS" start="2024-03-05T17:30:10.538996" elapsed="10.036025"/>
-</kw>
-<kw name="เพิ่ม Todo List 'ทำการบ้าน'" owner="KeyWord" source_name="เพิ่ม Todo List '${message-1}'">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-05T17:30:20.582334" level="INFO">Typing text 'ทำการบ้าน' into text field '//input[@data-testid='inputTodo']'.</msg>
-<arg>//input[@data-testid='inputTodo']</arg>
-<arg>${message-1}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T17:30:20.581237" elapsed="0.411324"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-05T17:30:20.993477" level="INFO">Clicking button '//button[@type='submit']'.</msg>
-<arg>//button[@type='submit']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T17:30:20.993069" elapsed="0.588377"/>
-</kw>
-<status status="PASS" start="2024-03-05T17:30:20.578453" elapsed="1.003334"/>
-</kw>
-<kw name="ทำ todo list เสร็จทั้งหมด 'ทำการบ้าน'" owner="KeyWord" source_name="ทำ todo list เสร็จทั้งหมด '${message-1}'">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-05T17:30:21.583691" level="INFO">Clicking element '//span[text()='ทำการบ้าน']'.</msg>
-<arg>//span[text()='${message-1}']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T17:30:21.583260" elapsed="0.258433"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-05T17:30:21.842635" level="INFO">Clicking element '//span[text()='This is a sampel todo']'.</msg>
-<arg>//span[text()='This is a sampel todo']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-05T17:30:21.842270" elapsed="0.320119"/>
-</kw>
-<status status="PASS" start="2024-03-05T17:30:21.582552" elapsed="0.580141"/>
-</kw>
-<status status="PASS" start="2024-03-05T17:30:10.537383" elapsed="11.626171"/>
+<status status="FAIL" start="2024-03-06T13:18:09.244892" elapsed="0.035884">No keyword with name 'Open Workbook' found.</status>
 </test>
-<status status="PASS" start="2024-03-05T17:30:10.041566" elapsed="12.125590"/>
+<status status="FAIL" start="2024-03-06T13:18:08.666098" elapsed="0.637574"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="ToDoPage">ToDoPage</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="ToDoPage">ToDoPage</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-03-05T17:30:10.534436" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/data-valid.robot' on line 4: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+<msg time="2024-03-06T13:18:09.231298" level="WARN">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/data-valid.robot' on line 4: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+<msg time="2024-03-06T13:18:09.235603" level="ERROR">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/KeyWord.robot' on line 5: Importing library 'RPA.Excel.Files' failed: ModuleNotFoundError: No module named 'RPA'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/cococake/.vscode/extensions/robocorp.robotframework-lsp-1.11.0/src/robotframework_debug_adapter
+  /Users/cococake/Desktop/Odds_Mar/Practing_Robot_1
+  /Users/cococake/.vscode/extensions/robocorp.robotframework-lsp-1.11.0/src
+  /Users/cococake/.vscode/extensions/robocorp.robotframework-lsp-1.11.0/src/robotframework_ls/vendored
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python312.zip
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/lib-dynload
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages</msg>
 </errors>
 </robot>

@@ -2,6 +2,7 @@
 Library           SeleniumLibrary
 Library    XML
 Resource          data-valid.robot
+Library      RPA.Excel.Files
 
 # *** Variable ***
 # ${url_facebook}        https://web-demo.qahive.com/todo-list 
@@ -48,8 +49,7 @@ Open ToDoList Page
     # END
     
     Click Element   //span[text()='${message-1}']    # robotcode: ignore
-    # Click Button   //button[@data-testid='markDone']    
-    # Click Button   //button[@data-testid='markDone']
+    Click Element    //div[@class='todo']
     Click Element   //span[text()='This is a sampel todo']  
     # Click Button   (//button[text()='✓'])[1]
 
@@ -79,3 +79,19 @@ Open ToDoList Page
     Click Element    //button[@type='submit']     
 
 
+
+
+เปิดหน้า generate
+    Open Browser    https://web-demo.qahive.com/test-data-generator
+    Click Element    //input[@name='fullNameEN']
+    Click Element    //input[@name='genderEN']
+    Click Button    //button[text()='Generate']
+    Click Button    //button[text()='Export']
+    Click Element    //li[text()='Download as CSV']
+
+open Exel Sheet
+    Open Workbook      ${CURDIR}/../RPA Core Service App.cvs
+    # Set Active Worksheet    RPA Core Service App
+    # ${data}    Read Worksheet
+    # Log   ${data}
+    
