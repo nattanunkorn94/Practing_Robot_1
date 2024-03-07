@@ -1,36 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240306 13:18:09.469" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240306 16:16:11.608" rpa="false" schemaversion="4">
 <suite id="s1" name="Practing Robot 1" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1">
 <suite id="s1-s1" name="Test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test">
 <suite id="s1-s1-s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
-<test id="s1-s1-s1-t1" name="เปิดหน้า generate" line="25">
+<test id="s1-s1-s1-t1" name="เปิดหน้า generate" line="26">
 <kw name="open Exel Sheet" library="KeyWord">
 <kw name="Open Workbook" library="RPA.Excel.Files">
-<arg>/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/../RPA Core Service App.cvs</arg>
+<arg>/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/../testbook2.xlsx</arg>
 <doc>Open an existing Excel workbook.</doc>
-<msg timestamp="20240306 13:18:11.396" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/RPA Core Service App.cvs'</msg>
-<status status="FAIL" starttime="20240306 13:18:11.395" endtime="20240306 13:18:11.440"/>
+<msg timestamp="20240306 16:16:12.496" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x108bfb710&gt;</msg>
+<status status="PASS" starttime="20240306 16:16:12.489" endtime="20240306 16:16:12.497"/>
 </kw>
-<status status="FAIL" starttime="20240306 13:18:11.390" endtime="20240306 13:18:11.440"/>
+<kw name="Set Active Worksheet" library="RPA.Excel.Files">
+<arg>Sheet1</arg>
+<doc>Set the active worksheet.</doc>
+<status status="PASS" starttime="20240306 16:16:12.497" endtime="20240306 16:16:12.498"/>
 </kw>
-<status status="FAIL" starttime="20240306 13:18:11.388" endtime="20240306 13:18:11.441">FileNotFoundError: [Errno 2] No such file or directory: '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/RPA Core Service App.cvs'</status>
+<kw name="Read Worksheet" library="RPA.Excel.Files">
+<var>${data}</var>
+<arg>header=${TRUE}</arg>
+<doc>Read the content of a worksheet into a list of dictionaries.</doc>
+<msg timestamp="20240306 16:16:12.499" level="INFO">${data} = [{'test1': 'test2'}, {'test1': 'test3'}, {'test1': 'test4'}, {'test1': 'test5'}, {'test1': 'test6'}, {'test1': 'test7'}, {'test1': 'test8'}]</msg>
+<status status="PASS" starttime="20240306 16:16:12.498" endtime="20240306 16:16:12.499"/>
+</kw>
+<kw name="Create Table" library="RPA.Tables">
+<var>${orders}</var>
+<arg>${data}</arg>
+<doc>Create Table object from data.</doc>
+<msg timestamp="20240306 16:16:12.501" level="INFO">Created table: Table(columns=['test1'], rows=7)</msg>
+<msg timestamp="20240306 16:16:12.501" level="INFO">${orders} = Table(columns=['test1'], rows=7)</msg>
+<status status="PASS" starttime="20240306 16:16:12.499" endtime="20240306 16:16:12.501"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${orders}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240306 16:16:12.502" level="INFO">Table(columns=['test1'], rows=7)</msg>
+<status status="PASS" starttime="20240306 16:16:12.502" endtime="20240306 16:16:12.502"/>
+</kw>
+<kw name="Add Table Column" library="RPA.Tables">
+<arg>${orders}</arg>
+<arg>name=TOS</arg>
+<arg>values='nana'</arg>
+<doc>Append a column to a table.</doc>
+<status status="PASS" starttime="20240306 16:16:12.503" endtime="20240306 16:16:12.503"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${orders}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240306 16:16:12.504" level="INFO">Table(columns=['test1', 'TOS'], rows=7)</msg>
+<status status="PASS" starttime="20240306 16:16:12.503" endtime="20240306 16:16:12.504"/>
+</kw>
+<kw name="Add Table Row" library="RPA.Tables">
+<arg>${orders}</arg>
+<arg>testerer</arg>
+<doc>Append rows to a table.</doc>
+<status status="PASS" starttime="20240306 16:16:12.504" endtime="20240306 16:16:12.505"/>
+</kw>
+<kw name="Read Worksheet" library="RPA.Excel.Files">
+<var>${orders}</var>
+<doc>Read the content of a worksheet into a list of dictionaries.</doc>
+<msg timestamp="20240306 16:16:12.506" level="INFO">${orders} = [{'A': 'test1'}, {'A': 'test2'}, {'A': 'test3'}, {'A': 'test4'}, {'A': 'test5'}, {'A': 'test6'}, {'A': 'test7'}, {'A': 'test8'}]</msg>
+<status status="PASS" starttime="20240306 16:16:12.505" endtime="20240306 16:16:12.506"/>
+</kw>
+<status status="PASS" starttime="20240306 16:16:12.488" endtime="20240306 16:16:12.507"/>
+</kw>
+<status status="PASS" starttime="20240306 16:16:12.487" endtime="20240306 16:16:12.507"/>
 </test>
-<status status="FAIL" starttime="20240306 13:18:09.631" endtime="20240306 13:18:11.443"/>
+<status status="PASS" starttime="20240306 16:16:11.679" endtime="20240306 16:16:12.509"/>
 </suite>
-<status status="FAIL" starttime="20240306 13:18:09.628" endtime="20240306 13:18:11.451"/>
+<status status="PASS" starttime="20240306 16:16:11.675" endtime="20240306 16:16:12.512"/>
 </suite>
-<status status="FAIL" starttime="20240306 13:18:09.474" endtime="20240306 13:18:11.456"/>
+<status status="PASS" starttime="20240306 16:16:11.613" endtime="20240306 16:16:12.513"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test">Practing Robot 1.Test</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="ToDoPage">Practing Robot 1.Test.ToDoPage</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test">Practing Robot 1.Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="ToDoPage">Practing Robot 1.Test.ToDoPage</stat>
 </suite>
 </statistics>
 <errors>

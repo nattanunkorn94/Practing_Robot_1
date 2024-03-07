@@ -3,7 +3,7 @@ Library           SeleniumLibrary
 Library    XML
 Resource          data-valid.robot
 Library      RPA.Excel.Files
-
+Library    RPA.Tables
 # *** Variable ***
 # ${url_facebook}        https://web-demo.qahive.com/todo-list 
 # ${title_H1}            Todo List
@@ -87,11 +87,22 @@ Open ToDoList Page
     Click Element    //input[@name='genderEN']
     Click Button    //button[text()='Generate']
     Click Button    //button[text()='Export']
-    Click Element    //li[text()='Download as CSV']
+    # Click Element    //li[text()='Download as CSV']
 
 open Exel Sheet
-    Open Workbook      ${CURDIR}/../RPA Core Service App.cvs
-    # Set Active Worksheet    RPA Core Service App
-    # ${data}    Read Worksheet
-    # Log   ${data}
+    Open Workbook     ${CURDIR}/../testbook2.xlsx
+    Set Active Worksheet    Sheet1
+    ${data}    Read Worksheet    header=${TRUE}
+    ${orders}=       Create table     ${data}
+    Log   ${orders}
+    Add table column    ${orders}    name=TOS    values='nana'
+    # [Return]         ${orders}
+    Log   ${orders}
+
+    Add table row    ${orders}   testerer
+    ${orders}    Read Worksheet    
+  
+    
+    
+    # [Teardown]       Close workbook
     
