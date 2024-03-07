@@ -1,79 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240306 16:16:10.017" rpa="false" schemaversion="4">
-<suite id="s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
-<test id="s1-t1" name="เปิดหน้า generate" line="26">
-<kw name="open Exel Sheet" library="KeyWord">
-<kw name="Open Workbook" library="RPA.Excel.Files">
-<arg>/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/../testbook2.xlsx</arg>
-<doc>Open an existing Excel workbook.</doc>
-<msg timestamp="20240306 16:16:11.184" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x1056d1b10&gt;</msg>
-<status status="PASS" starttime="20240306 16:16:11.174" endtime="20240306 16:16:11.184"/>
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240307 16:28:49.561" rpa="false" schemaversion="4">
+<suite id="s1" name="apiTest" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/apiTest.robot">
+<test id="s1-t1" name="Get Weather3Hours Should Success and return data" line="21">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{params}</var>
+<arg>type=json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240307 16:28:50.464" level="INFO">&amp;{params} = { type=json }</msg>
+<status status="PASS" starttime="20240307 16:28:50.462" endtime="20240307 16:28:50.472"/>
 </kw>
-<kw name="Set Active Worksheet" library="RPA.Excel.Files">
-<arg>Sheet1</arg>
-<doc>Set the active worksheet.</doc>
-<status status="PASS" starttime="20240306 16:16:11.185" endtime="20240306 16:16:11.185"/>
+<kw name="Get Weather3Hours">
+<var>${resp}</var>
+<arg>${params}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>tmd</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240307 16:28:50.476" level="INFO">Creating Session using : alias=tmd, url=http://data.tmd.go.th/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240307 16:28:50.476" endtime="20240307 16:28:50.477"/>
 </kw>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${data}</var>
-<arg>header=${TRUE}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240306 16:16:11.186" level="INFO">${data} = [{'test1': 'test2'}, {'test1': 'test3'}, {'test1': 'test4'}, {'test1': 'test5'}, {'test1': 'test6'}, {'test1': 'test7'}, {'test1': 'test8'}]</msg>
-<status status="PASS" starttime="20240306 16:16:11.185" endtime="20240306 16:16:11.186"/>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>tmd</arg>
+<arg>/Weather3Hours/V1</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20240307 16:30:42.558" level="INFO">GET Request : url=http://data.tmd.go.th/api/Weather3Hours/V1?type=json (redirected) 
+ path_url=/api/Weather3Hours/V1?type=json 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20240307 16:30:42.559" level="INFO">GET Response : url=https://data.tmd.go.th/api/Weather3Hours/V1?type=json 
+ status=500, reason=Internal Server Error 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/8.5', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Thu, 07 Mar 2024 09:31:07 GMT', 'Content-Length': '36'} 
+ body={"Message":"An error has occurred."} 
+ </msg>
+<msg timestamp="20240307 16:30:42.559" level="INFO">/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'data.tmd.go.th'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20240307 16:30:42.560" level="FAIL">HTTPError: 500 Server Error: Internal Server Error for url: https://data.tmd.go.th/api/Weather3Hours/V1?type=json</msg>
+<status status="FAIL" starttime="20240307 16:28:50.477" endtime="20240307 16:30:42.565"/>
 </kw>
-<kw name="Create Table" library="RPA.Tables">
-<var>${orders}</var>
-<arg>${data}</arg>
-<doc>Create Table object from data.</doc>
-<msg timestamp="20240306 16:16:11.188" level="INFO">Created table: Table(columns=['test1'], rows=7)</msg>
-<msg timestamp="20240306 16:16:11.188" level="INFO">${orders} = Table(columns=['test1'], rows=7)</msg>
-<status status="PASS" starttime="20240306 16:16:11.186" endtime="20240306 16:16:11.189"/>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${resp}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" starttime="20240307 16:30:42.567" endtime="20240307 16:30:42.567"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${orders}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240306 16:16:11.191" level="INFO">Table(columns=['test1'], rows=7)</msg>
-<status status="PASS" starttime="20240306 16:16:11.189" endtime="20240306 16:16:11.192"/>
+<status status="FAIL" starttime="20240307 16:28:50.474" endtime="20240307 16:30:42.567"/>
 </kw>
-<kw name="Add Table Column" library="RPA.Tables">
-<arg>${orders}</arg>
-<arg>name=TOS</arg>
-<arg>values='nana'</arg>
-<doc>Append a column to a table.</doc>
-<status status="PASS" starttime="20240306 16:16:11.192" endtime="20240306 16:16:11.193"/>
+<kw name="Response Status should be Success">
+<arg>${resp}</arg>
+<status status="NOT RUN" starttime="20240307 16:30:42.568" endtime="20240307 16:30:42.568"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${orders}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240306 16:16:11.194" level="INFO">Table(columns=['test1', 'TOS'], rows=7)</msg>
-<status status="PASS" starttime="20240306 16:16:11.194" endtime="20240306 16:16:11.195"/>
-</kw>
-<kw name="Add Table Row" library="RPA.Tables">
-<arg>${orders}</arg>
-<arg>testerer</arg>
-<doc>Append rows to a table.</doc>
-<status status="PASS" starttime="20240306 16:16:11.195" endtime="20240306 16:16:11.195"/>
-</kw>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${orders}</var>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240306 16:16:11.196" level="INFO">${orders} = [{'A': 'test1'}, {'A': 'test2'}, {'A': 'test3'}, {'A': 'test4'}, {'A': 'test5'}, {'A': 'test6'}, {'A': 'test7'}, {'A': 'test8'}]</msg>
-<status status="PASS" starttime="20240306 16:16:11.196" endtime="20240306 16:16:11.197"/>
-</kw>
-<status status="PASS" starttime="20240306 16:16:11.173" endtime="20240306 16:16:11.198"/>
-</kw>
-<status status="PASS" starttime="20240306 16:16:11.172" endtime="20240306 16:16:11.228"/>
+<status status="FAIL" starttime="20240307 16:28:50.448" endtime="20240307 16:30:42.569">HTTPError: 500 Server Error: Internal Server Error for url: https://data.tmd.go.th/api/Weather3Hours/V1?type=json</status>
 </test>
-<status status="PASS" starttime="20240306 16:16:10.053" endtime="20240306 16:16:11.232"/>
+<status status="FAIL" starttime="20240307 16:28:49.566" endtime="20240307 16:30:42.570"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="ToDoPage">ToDoPage</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="apiTest">apiTest</stat>
 </suite>
 </statistics>
 <errors>
