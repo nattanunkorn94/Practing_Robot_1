@@ -1,80 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240308 09:19:15.187" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240308 11:33:02.420" rpa="false" schemaversion="4">
 <suite id="s1" name="Practing Robot 1" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1">
 <suite id="s1-s1" name="Test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test">
 <suite id="s1-s1-s1" name="apiTest" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/apiTest.robot">
-<test id="s1-s1-s1-t1" name="Get Weather3Hours Should Success and return data" line="21">
+<test id="s1-s1-s1-t1" name="POST TEST for reqres.on - 2" line="41">
 <kw name="Create Dictionary" library="BuiltIn">
-<var>&amp;{params}</var>
-<arg>type=json</arg>
+<var>&amp;{req_body}</var>
+<arg>name=test</arg>
+<arg>job=team leader</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240308 09:19:15.714" level="INFO">&amp;{params} = { type=json }</msg>
-<status status="PASS" starttime="20240308 09:19:15.713" endtime="20240308 09:19:15.715"/>
+<msg timestamp="20240308 11:33:02.906" level="INFO">&amp;{req_body} = { name=test | job=team leader }</msg>
+<status status="PASS" starttime="20240308 11:33:02.904" endtime="20240308 11:33:02.906"/>
 </kw>
-<kw name="Get Weather3Hours">
-<var>${resp}</var>
-<arg>${params}</arg>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>tmd</arg>
-<arg>${url}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20240308 09:19:15.717" level="INFO">Creating Session using : alias=tmd, url=https://www.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20240308 09:19:15.716" endtime="20240308 09:19:15.717"/>
-</kw>
-<kw name="GET On Session" library="RequestsLibrary">
-<var>${resp}</var>
-<arg>tmd</arg>
-<arg>/search</arg>
-<arg>params=${params}</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20240308 09:19:16.069" level="INFO">GET Request : url=https://www.google.com/search?type=json (redirected) 
- path_url=/search?type=json 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=https://reqres.in/api/users</arg>
+<arg>json=${req_body}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20240308 11:33:03.445" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '38', 'Content-Type': 'application/json'} 
+ body=b'{"name": "test", "job": "team leader"}' 
  </msg>
-<msg timestamp="20240308 09:19:16.070" level="INFO">GET Response : url=https://www.google.com/webhp 
- status=200, reason=OK 
- headers={'Date': 'Fri, 08 Mar 2024 02:19:16 GMT', 'Expires': '-1', 'Cache-Control': 'private, max-age=0', 'Content-Type': 'text/html; charset=ISO-8859-1', 'Content-Security-Policy-Report-Only': "object-src 'none';base-uri 'self';script-src 'nonce-yPvYyVNLWKl1Q4IhEyrluw' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp", 'P3P': 'CP="This is not a P3P policy! See g.co/p3phelp for more info."', 'Content-Encoding': 'gzip', 'Server': 'gws', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'Set-Cookie': '1P_JAR=2024-03-08-02; expires=Sun, 07-Apr-2024 02:19:16 GMT; path=/; domain=.google.com; Secure, NID=512=JHA97lMJKJNJWSjPgs0fU_5trJ-k88P5BtLrR0FSi4WqDdCYuM5Mtr2EDn4UaIXdfpaD09dYwAgE5eKyW_rYg_2aAU9eDTScLxdEiDSc_JdWNDDrHVj3iCZ7YFLijI0WFxp6mc6ovPZvtr0KSPf0o-x4gJUyD0KBHBRh8DntQ40; expires=Sat, 07-Sep-2024 02:19:15 GMT; path=/; domain=.google.com; HttpOnly', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} 
- body=&lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="th"&gt;&lt;head&gt;&lt;meta content="text/html; charset=UTF-8" http-equiv="Content-Type"&gt;&lt;meta content="/logos/doodles/2024/international-womens-day-2024-6753651837110196-l.png" itemprop="image"&gt;&lt;meta content="&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3626;&amp;#3605;&amp;#3619;&amp;#3637;&amp;#3626;&amp;#3634;&amp;#3585;&amp;#3621;&amp;#3611;&amp;#3637; 2024" property="twitter:title"&gt;&lt;meta content="&amp;#3626;&amp;#3640;&amp;#3586;&amp;#3626;&amp;#3633;&amp;#3609;&amp;#3605;&amp;#3660;&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3626;&amp;#3605;&amp;#3619;&amp;#3637;&amp;#3626;&amp;#3634;&amp;#3585;&amp;#3621; #GoogleDoodle" property="twitter:description"&gt;&lt;meta content="&amp;#3626;&amp;#3640;&amp;#3586;&amp;#3626;&amp;#3633;&amp;#3609;&amp;#3605;&amp;#3660;&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3626;&amp;#3605;&amp;#3619;&amp;#3637;&amp;#3626;&amp;#3634;&amp;#3585;&amp;#3621; #GoogleDoodle" property="og:description"&gt;&lt;meta content="summary_large_image" property="twitter:card"&gt;&lt;meta content="@GoogleDoodles" property="twitter:site"&gt;&lt;meta content="https://www.google.com/logos/doodles/2024/international-womens-day-2024-6753651837110196-2x.png" property="twitter:image"&gt;&lt;meta content="https://www.google.com/logos/doodles/2024/international-womens-day-2024-6753651837110196-2x.png" property="og:image"&gt;&lt;meta content="1000" property="og:image:width"&gt;&lt;meta content="400" property="og:image:height"&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce="yPvYyVNLWKl1Q4IhEyrluw"&gt;(function(){var _g={kEI:'pHXqZbzQAsTgseMPmqqtwAk',kEXPI:'0,18167,1347301,206,2414,2390,1132070,1965,1195823,974,302200,77529,44798,23792,12311,2823,14765,4998,55519,2872,2891,3926,4422,3406,606,50059,10631,16335,20583,4,57402,2215,27050,6627,7593,1,11942,30212,2,39761,6699,31123,4568,6258,24670,33064,2,2,1,26632,8155,23351,22435,9779,42459,20199,73178,3030,15816,1804,11488,14919,20675,1635,13493,5246075,6930,2,1644,583,3,57,84,5992594,2839009,5,81,27999713,43886,3,1603,3,2121778,2585,16813,2,2,2,22619618,398338,7375,8408,16665,13024,4426,10577,5878,17455,1584,11953,1923,8588,2370,6407,2866,7794,3185,5521,7432,2212,153,2423,5392,214,390,3620,687,3,3216,218,3,5106,4496,5,131,5086,1990,2164,1877,95,2245,356,106,1460,557,1214,9483,4,649,129,37,68,1036,1205,1536,257,1950,1264,3122,475,559,1502,1213,3487,5643,1502,358,267,325,1267,3,539,72,219,200,2093,410,328,605,242,425,354,155,2484,6,201,28,2541,49,456,1,6,54,436,1,557,1,63,588,49,1307,229,1,1686,687,734,273,3549,32,220,297,253,3095,22,3,53,541,645,935,67,444,33,22,219,373,482,9,77,234,14,404,2,3665,681,105,1409,442,361,21,3,4,241,56,45,5,26,222,1138,201,412,4,108,218,76,414,75,172,43,76,860,35,99,306,29,97,41,162,222,190,416,319,19,6,179,2,122,63,370,163,155,28,493,146,4,1,6,382,399,304,1028,369,2,5,3,490,775,60,271,35,1,6,137,19,539,3,19,205,3,773,972,292,962,93,1388,2,335,38,59,648,401,92,1020,952,440,2,1,6,21310934,365637,3,3768,1803,492,49,1708',kBL:'GQ1a',kOPI:89978449};(function(){var a;(null==(a=window.google)?0:a.stvsc)?google.kEI=_g.kEI:window.google=_g;}).call(this);})();(function(){google.sn='webhp';google.kHL='th';})();(function(){
-var h=this||self;function l(){return void 0!==window.google&amp;&amp;void 0!==window.google.kOPI&amp;&amp;0!==window.google.kOPI?window.google.kOPI:null};var m,n=[];function p(a){for(var b;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("eid")));)a=a.parentNode;return b||m}function q(a){for(var b=null;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("leid")));)a=a.parentNode;return b}function r(a){/^http:/i.test(a)&amp;&amp;"https:"===window.location.protocol&amp;&amp;(google.ml&amp;&amp;google.ml(Error("a"),!1,{src:a,glmm:1}),a="");return a}
-function t(a,b,c,d,k){var e="";-1===b.search("&amp;ei=")&amp;&amp;(e="&amp;ei="+p(d),-1===b.search("&amp;lei=")&amp;&amp;(d=q(d))&amp;&amp;(e+="&amp;lei="+d));d="";var g=-1===b.search("&amp;cshid=")&amp;&amp;"slh"!==a,f=[];f.push(["zx",Date.now().toString()]);h._cshid&amp;&amp;g&amp;&amp;f.push(["cshid",h._cshid]);c=c();null!=c&amp;&amp;f.push(["opi",c.toString()]);for(c=0;c&lt;f.length;c++){if(0===c||0&lt;c)d+="&amp;";d+=f[c][0]+"="+f[c][1]}return"/"+(k||"gen_204")+"?atyp=i&amp;ct="+String(a)+"&amp;cad="+(b+e+d)};m=google.kEI;google.getEI=p;google.getLEI=q;google.ml=function(){return null};google.log=function(a,b,c,d,k,e){e=void 0===e?l:e;c||(c=t(a,b,e,d,k));if(c=r(c)){a=new Image;var g=n.length;n[g]=a;a.onerror=a.onload=a.onabort=function(){delete n[g]};a.src=c}};google.logUrl=function(a,b){b=void 0===b?l:b;return t("",a,b)};}).call(this);(function(){google.y={};google.sy=[];google.x=function(a,b){if(a)var c=a.id;else{do c=Math.random();while(google.y[c])}google.y[c]=[a,b];return!1};google.sx=function(a){google.sy.push(a)};google.lm=[];google.plm=function(a){google.lm.push.apply(google.lm,a)};google.lq=[];google.load=function(a,b,c){google.lq.push([[a],b,c])};google.loadAll=function(a,b){google.lq.push([a,b])};google.bx=!1;google.lx=function(){};var d=[];google.fce=function(a,b,c,e){d.push([a,b,c,e])};google.qce=d;}).call(this);google.f={};(function(){
-document.documentElement.addEventListener("submit",function(b){var a;if(a=b.target){var c=a.getAttribute("data-submitfalse");a="1"===c||"q"===c&amp;&amp;!a.elements.q.value?!0:!1}else a=!1;a&amp;&amp;(b.preventDefault(),b.stopPropagation())},!0);document.documentElement.addEventListener("click",function(b){var a;a:{for(a=b.target;a&amp;&amp;a!==document.documentElement;a=a.parentElement)if("A"===a.tagName){a="1"===a.getAttribute("data-nohref");break a}a=!1}a&amp;&amp;b.preventDefault()},!0);}).call(this);&lt;/script&gt;&lt;style&gt;#gbar,#guser{font-size:13px;padding-top:1px !important;}#gbar{height:22px}#guser{padding-bottom:7px !important;text-align:right}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px}.gbh{height:0;position:absolute;top:24px;width:100%}@media all{.gb1{height:22px;margin-right:.5em;vertical-align:top}#gbar{float:left}}a.gb1,a.gb4{text-decoration:underline !important}a.gb1,a.gb4{color:#00c !important}.gbi .gb4{color:#dd8e27 !important}.gbf .gb4{color:#900 !important}
-&lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;overflow-y:scroll}#gog{padding:3px 8px 0}td{line-height:.8em}.gac_m td{line-height:17px}form{margin-bottom:20px}.h{color:#1967d2}em{color:#c5221f;font-style:normal;font-weight:normal}a em{text-decoration:underline}.lst{height:25px;width:496px}.gsfi,.lst{font:18px arial,sans-serif}.gsfs{font:17px arial,sans-serif}.ds{display:inline-box;display:inline-block;margin:3px 0 4px;margin-left:4px}input{font-family:inherit}body{background:#fff;color:#000}a{color:#681da8;text-decoration:none}a:hover,a:active{text-decoration:underline}.fl a{color:#1967d2}a:visited{color:#681da8}.sblc{padding-top:5px}.sblc a{display:block;margin:2px 0;margin-left:13px;font-size:11px}.lsbb{background:#f8f9fa;border:solid 1px;border-color:#dadce0 #70757a #70757a #dadce0;height:30px}.lsbb{display:block}#WqQANb a{display:inline-block;margin:0 12px}.lsb{background:url(/images/nav_logo229.png) 0 -261px repeat-x;color:#000;border:none;cursor:pointer;height:30px;margin:0;outline:0;font:15px arial,sans-serif;vertical-align:top}.lsb:active{background:#dadce0}.lst:focus{outline:none}.Ucigb{width:458px}&lt;/style&gt;&lt;script nonce="yPvYyVNLWKl1Q4IhEyrluw"&gt;(function(){window.google.erd={jsr:1,bv:1967,de:true};
-var h=this||self;var k,l=null!=(k=h.mei)?k:1,n,p=null!=(n=h.sdo)?n:!0,q=0,r,t=google.erd,v=t.jsr;google.ml=function(a,b,d,m,e){e=void 0===e?2:e;b&amp;&amp;(r=a&amp;&amp;a.message);void 0===d&amp;&amp;(d={});d.cad="ple_"+google.ple+".aple_"+google.aple;if(google.dl)return google.dl(a,e,d),null;b=d;if(0&gt;v){window.console&amp;&amp;console.error(a,b);if(-2===v)throw a;b=!1}else b=!a||!a.message||"Error loading script"===a.message||q&gt;=l&amp;&amp;!m?!1:!0;if(!b)return null;q++;d=d||{};b=encodeURIComponent;var c="/gen_204?atyp=i&amp;ei="+b(google.kEI);google.kEXPI&amp;&amp;(c+="&amp;jexpid="+b(google.kEXPI));c+="&amp;srcpg="+b(google.sn)+"&amp;jsr="+b(t.jsr)+"&amp;bver="+
-b(t.bv);var f=a.lineNumber;void 0!==f&amp;&amp;(c+="&amp;line="+f);var g=a.fileName;g&amp;&amp;(0&lt;g.indexOf("-extension:/")&amp;&amp;(e=3),c+="&amp;script="+b(g),f&amp;&amp;g===window.location.href&amp;&amp;(f=document.documentElement.outerHTML.split("\n")[f],c+="&amp;cad="+b(f?f.substring(0,300):"No script found.")));google.ple&amp;&amp;1===google.ple&amp;&amp;(e=2);c+="&amp;jsel="+e;for(var u in d)c+="&amp;",c+=b(u),c+="=",c+=b(d[u]);c=c+"&amp;emsg="+b(a.name+": "+a.message);c=c+"&amp;jsst="+b(a.stack||"N/A");12288&lt;=c.length&amp;&amp;(c=c.substr(0,12288));a=c;m||google.log(0,"",a);return a};window.onerror=function(a,b,d,m,e){r!==a&amp;&amp;(a=e instanceof Error?e:Error(a),void 0===d||"lineNumber"in a||(a.lineNumber=d),void 0===b||"fileName"in a||(a.fileName=b),google.ml(a,!1,void 0,!1,"SyntaxError"===a.name||"SyntaxError"===a.message.substring(0,11)||-1!==a.message.indexOf("Script error")?3:0));r=null;p&amp;&amp;q&gt;=l&amp;&amp;(window.onerror=null)};})();&lt;/script&gt;&lt;/head&gt;&lt;body bgcolor="#fff"&gt;&lt;script nonce="yPvYyVNLWKl1Q4IhEyrluw"&gt;(function(){var src='/images/nav_logo229.png';var iesg=false;document.body.onload = function(){window.n &amp;&amp; window.n();if (document.images){new Image().src=src;}
-if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.focus();}
-}
-})();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;&amp;#3588;&amp;#3657;&amp;#3609;&amp;#3627;&amp;#3634;&lt;/b&gt; &lt;a class=gb1 href="https://www.google.com/imghp?hl=th&amp;tab=wi"&gt;&amp;#3588;&amp;#3657;&amp;#3609;&amp;#3619;&amp;#3641;&amp;#3611;&lt;/a&gt; &lt;a class=gb1 href="https://maps.google.co.th/maps?hl=th&amp;tab=wl"&gt;Maps&lt;/a&gt; &lt;a class=gb1 href="https://play.google.com/?hl=th&amp;tab=w8"&gt;Play&lt;/a&gt; &lt;a class=gb1 href="https://www.youtube.com/?tab=w1"&gt;YouTube&lt;/a&gt; &lt;a class=gb1 href="https://news.google.com/?tab=wn"&gt;&amp;#3586;&amp;#3656;&amp;#3634;&amp;#3623;&lt;/a&gt; &lt;a class=gb1 href="https://mail.google.com/mail/?tab=wm"&gt;Gmail&lt;/a&gt; &lt;a class=gb1 href="https://drive.google.com/?tab=wo"&gt;&amp;#3652;&amp;#3604;&amp;#3619;&amp;#3615;&amp;#3660;&lt;/a&gt; &lt;a class=gb1 style="text-decoration:none" href="https://www.google.co.th/intl/th/about/products?tab=wh"&gt;&lt;u&gt;&amp;#3629;&amp;#3639;&amp;#3656;&amp;#3609;&amp;#3654;&lt;/u&gt; &amp;raquo;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div id=guser width=100%&gt;&lt;nobr&gt;&lt;span id=gbn class=gbi&gt;&lt;/span&gt;&lt;span id=gbf class=gbf&gt;&lt;/span&gt;&lt;span id=gbe&gt;&lt;/span&gt;&lt;a href="http://www.google.co.th/history/optout?hl=th" class=gb4&gt;&amp;#3611;&amp;#3619;&amp;#3632;&amp;#3623;&amp;#3633;&amp;#3605;&amp;#3636;&amp;#3648;&amp;#3623;&amp;#3655;&amp;#3610;&lt;/a&gt; | &lt;a  href="/preferences?hl=th" class=gb4&gt;&amp;#3585;&amp;#3634;&amp;#3619;&amp;#3605;&amp;#3633;&amp;#3657;&amp;#3591;&amp;#3588;&amp;#3656;&amp;#3634;&lt;/a&gt; | &lt;a target=_top id=gb_70 href="https://accounts.google.com/ServiceLogin?hl=th&amp;pas... (set the log level to DEBUG or TRACE to see the full content) 
+<msg timestamp="20240308 11:33:03.445" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Fri, 08 Mar 2024 04:33:03 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '85', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1709872383&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=abzRtivhLbukgRGNfsKCGRQSjh5li%2FlHWgUZFGmVax4%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1709872383&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=abzRtivhLbukgRGNfsKCGRQSjh5li%2FlHWgUZFGmVax4%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"55-AfaT+5Cq51KVIOQeQavMj5ELKro"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '86101ad9f804893a-BKK'} 
+ body={"name":"test","job":"team leader","id":"575","createdAt":"2024-03-08T04:33:03.363Z"} 
  </msg>
-<msg timestamp="20240308 09:19:16.071" level="INFO">/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'www.google.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(
-/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'www.google.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg timestamp="20240308 09:19:16.072" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20240308 09:19:15.717" endtime="20240308 09:19:16.072"/>
-</kw>
-<kw name="Return From Keyword" library="BuiltIn">
-<arg>${resp}</arg>
-<doc>Returns from the enclosing user keyword.</doc>
-<msg timestamp="20240308 09:19:16.073" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20240308 09:19:16.072" endtime="20240308 09:19:16.073"/>
-</kw>
-<msg timestamp="20240308 09:19:16.074" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20240308 09:19:15.715" endtime="20240308 09:19:16.074"/>
+<msg timestamp="20240308 11:33:03.446" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20240308 11:33:02.908" endtime="20240308 11:33:03.446"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${resp}</arg>
+<arg>${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240308 09:19:16.075" level="INFO">&lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20240308 09:19:16.075" endtime="20240308 09:19:16.076"/>
+<msg timestamp="20240308 11:33:03.451" level="INFO">{'name': 'test', 'job': 'team leader', 'id': '575', 'createdAt': '2024-03-08T04:33:03.363Z'}</msg>
+<status status="PASS" starttime="20240308 11:33:03.450" endtime="20240308 11:33:03.451"/>
 </kw>
-<status status="PASS" starttime="20240308 09:19:15.711" endtime="20240308 09:19:16.076"/>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${response.json()}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" starttime="20240308 11:33:03.452" endtime="20240308 11:33:03.456"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${name}</var>
+<arg>${response.json()}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20240308 11:33:03.457" level="INFO">${name} = test</msg>
+<status status="PASS" starttime="20240308 11:33:03.456" endtime="20240308 11:33:03.457"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${job}</var>
+<arg>${response.json()}</arg>
+<arg>job</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20240308 11:33:03.460" level="INFO">${job} = team leader</msg>
+<status status="PASS" starttime="20240308 11:33:03.459" endtime="20240308 11:33:03.461"/>
+</kw>
+<status status="PASS" starttime="20240308 11:33:02.873" endtime="20240308 11:33:03.463"/>
 </test>
-<status status="PASS" starttime="20240308 09:19:15.226" endtime="20240308 09:19:16.077"/>
+<status status="PASS" starttime="20240308 11:33:02.487" endtime="20240308 11:33:03.466"/>
 </suite>
-<status status="PASS" starttime="20240308 09:19:15.223" endtime="20240308 09:19:16.079"/>
+<status status="PASS" starttime="20240308 11:33:02.476" endtime="20240308 11:33:03.473"/>
 </suite>
-<status status="PASS" starttime="20240308 09:19:15.192" endtime="20240308 09:19:16.080"/>
+<status status="PASS" starttime="20240308 11:33:02.429" endtime="20240308 11:33:03.476"/>
 </suite>
 <statistics>
 <total>
