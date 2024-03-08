@@ -91,7 +91,7 @@ Open ToDoList Page
 
 open Exel Sheet
     Open Workbook     ${CURDIR}/../testbook2.xlsx
-    Set Active Worksheet    Sheet1
+    Set Active Worksheet    FlatWhite
     ${data}    Read Worksheet    header=${TRUE}
     ${orders}=       Create table     ${data}
     Log   ${orders}
