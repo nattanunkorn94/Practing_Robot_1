@@ -1,0 +1,18 @@
+1709892539994	geckodriver	INFO	Listening on 127.0.0.1:58397
+1709892540054	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofilero04mW"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1709892543009	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1709892543721	Marionette	INFO	Listening on port 58425
+Read port: 58425
+WebDriver BiDi listening on ws://127.0.0.1:58398
+1709892544915	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:58398/devtools/browser/168c0230-1af6-437f-8fe9-05c2bf073194
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+1709892573032	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1709893018360	Marionette	INFO	Stopped listening on port 58425

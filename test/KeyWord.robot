@@ -1,9 +1,10 @@
 *** Settings ***
 Library           SeleniumLibrary
-Library    XML
+Library            XML
 Resource          data-valid.robot
 Library      RPA.Excel.Files
 Library    RPA.Tables
+Library    Collections
 # *** Variable ***
 # ${url_facebook}        https://web-demo.qahive.com/todo-list 
 # ${title_H1}            Todo List
@@ -37,28 +38,35 @@ Open ToDoList Page
 #
 
 เพิ่ม Todo List '${message-1}'
-    # [Arguments]       ${btn}
+    # [Arguments]       ${list2}
     Input Text  //input[@data-testid='inputTodo']   ${message-1} 
     Click Button  //button[@type='submit']
     
 
-ทำ todo list เสร็จทั้งหมด '${message-1}'
-    # VAR    ${a}      //span[text()='This is a sampel todo'] 
-    # IF  ${message-1} ==  ${message-1}
-    #     Click Element  //button[text()='✓']
-    # END
-    
-    Click Element   //span[text()='${message-1}']    # robotcode: ignore
-    Click Element    //div[@class='todo']
-    Click Element   //span[text()='This is a sampel todo']  
-    # Click Button   (//button[text()='✓'])[1]
+
+ทำ todo list ลำดับที่'${message-1}'
+    Click Element   (//button[text()='✓'])[${message-1}] 
+      # robotcode: ignore
+ 
+ลบ todo list ลำดับที่'${message-1}'
+    Click Element   (//button[text()='✕'])[${message-1}]
+   
+
+ทำ todo list เสร็จทั้งหมด
+    # Click Element   (//button[text()='✓'])
+    Maximize Browser Window
+    ${BB} =  Get Element Count      //button[text()='✓']
+    Log     ${BB} 
+    Execute Javascript    ( 0,500 ) 
+     FOR    ${no}    IN RANGE   ${BB}
+        # Scroll Element Into View    (//button[@type='button'])[6]
+        # Wait Until Element Is Visible    (//button[@type='button'])[6]  timeout=6000
+        Click Element   (//button[text()='✓'])[${no}+1]
+        Log    ${no}
+     END
 
 
-# For Loop
-#     # ${BB} =    Get Element Count     //button[text()='✓']      
-#     FOR  ${i}  IN  2
-#     Click Button   (//button[text()='✓'])[${i}]
-#     END
+
 
 กรอกข้อมูล user '${username}' '${firstname}' '${lastname}'
     Open Browser    ${url_form} 
@@ -91,7 +99,7 @@ Open ToDoList Page
 
 open Exel Sheet
     Open Workbook     ${CURDIR}/../testbook2.xlsx
-    Set Active Worksheet    FlatWhite
+    Set Active Worksheet    FlatWhi te
     ${data}    Read Worksheet    header=${TRUE}
     ${orders}=       Create table     ${data}
     Log   ${orders}

@@ -1,70 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240308 11:39:18.854" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240308 17:45:55.604" rpa="false" schemaversion="4">
 <suite id="s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
-<test id="s1-t1" name="เปิดหน้า generate" line="26">
-<kw name="open Exel Sheet" library="KeyWord">
-<kw name="Open Workbook" library="RPA.Excel.Files">
-<arg>/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/../testbook2.xlsx</arg>
-<doc>Open an existing Excel workbook.</doc>
-<msg timestamp="20240308 11:39:19.707" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10c556e90&gt;</msg>
-<status status="PASS" starttime="20240308 11:39:19.691" endtime="20240308 11:39:19.709"/>
+<test id="s1-t1" name="User เข้าไปทำการเพิ่ม ToDo List" line="13">
+<kw name="Open ToDoList Page" library="KeyWord">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url_todo}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240308 17:45:58.043" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
+<status status="PASS" starttime="20240308 17:45:58.039" endtime="20240308 17:46:16.127"/>
 </kw>
-<kw name="Set Active Worksheet" library="RPA.Excel.Files">
-<arg>Sheet1</arg>
-<doc>Set the active worksheet.</doc>
-<status status="PASS" starttime="20240308 11:39:19.710" endtime="20240308 11:39:19.711"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//h1[text()='Todo List']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240308 17:46:16.129" endtime="20240308 17:46:17.106"/>
 </kw>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${data}</var>
-<arg>header=${TRUE}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240308 11:39:19.713" level="INFO">${data} = [{'test1': 'test2'}, {'test1': 'test3'}, {'test1': 'test4'}, {'test1': 'test5'}, {'test1': 'test6'}, {'test1': 'test7'}, {'test1': 'test8'}]</msg>
-<status status="PASS" starttime="20240308 11:39:19.712" endtime="20240308 11:39:19.713"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//b[text()='Add Todo']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240308 17:46:17.106" endtime="20240308 17:46:17.147"/>
 </kw>
-<kw name="Create Table" library="RPA.Tables">
-<var>${orders}</var>
-<arg>${data}</arg>
-<doc>Create Table object from data.</doc>
-<msg timestamp="20240308 11:39:19.720" level="INFO">Created table: Table(columns=['test1'], rows=7)</msg>
-<msg timestamp="20240308 11:39:19.721" level="INFO">${orders} = Table(columns=['test1'], rows=7)</msg>
-<status status="PASS" starttime="20240308 11:39:19.714" endtime="20240308 11:39:19.723"/>
+<status status="PASS" starttime="20240308 17:45:58.026" endtime="20240308 17:46:17.148"/>
+</kw>
+<kw name="เพิ่ม Todo List 'อันที่2'" library="KeyWord" sourcename="เพิ่ม Todo List '${message-1}'">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//input[@data-testid='inputTodo']</arg>
+<arg>${message-1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:17.152" level="INFO">Typing text 'อันที่2' into text field '//input[@data-testid='inputTodo']'.</msg>
+<status status="PASS" starttime="20240308 17:46:17.151" endtime="20240308 17:46:17.908"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:17.910" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240308 17:46:17.909" endtime="20240308 17:46:18.816"/>
+</kw>
+<status status="PASS" starttime="20240308 17:46:17.149" endtime="20240308 17:46:18.817"/>
+</kw>
+<kw name="เพิ่ม Todo List 'อันที่3'" library="KeyWord" sourcename="เพิ่ม Todo List '${message-1}'">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//input[@data-testid='inputTodo']</arg>
+<arg>${message-1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:18.821" level="INFO">Typing text 'อันที่3' into text field '//input[@data-testid='inputTodo']'.</msg>
+<status status="PASS" starttime="20240308 17:46:18.819" endtime="20240308 17:46:18.997"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:19.000" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240308 17:46:18.998" endtime="20240308 17:46:19.836"/>
+</kw>
+<status status="PASS" starttime="20240308 17:46:18.818" endtime="20240308 17:46:19.837"/>
+</kw>
+<kw name="เพิ่ม Todo List 'อันที่4'" library="KeyWord" sourcename="เพิ่ม Todo List '${message-1}'">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//input[@data-testid='inputTodo']</arg>
+<arg>${message-1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:19.840" level="INFO">Typing text 'อันที่4' into text field '//input[@data-testid='inputTodo']'.</msg>
+<status status="PASS" starttime="20240308 17:46:19.838" endtime="20240308 17:46:19.947"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:19.949" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240308 17:46:19.948" endtime="20240308 17:46:20.556"/>
+</kw>
+<status status="PASS" starttime="20240308 17:46:19.837" endtime="20240308 17:46:20.557"/>
+</kw>
+<kw name="ทำ todo list เสร็จทั้งหมด" library="KeyWord">
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240308 17:46:20.560" endtime="20240308 17:46:21.054"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${BB}</var>
+<arg>//button[text()='✓']</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20240308 17:46:21.054" level="WARN">Keyword 'Get Element Count' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Count' or 'XML.Get Element Count'.</msg>
+<msg timestamp="20240308 17:46:21.098" level="INFO">${BB} = 4</msg>
+<status status="PASS" starttime="20240308 17:46:21.054" endtime="20240308 17:46:21.098"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${orders}</arg>
+<arg>${BB}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240308 11:39:19.729" level="INFO">Table(columns=['test1'], rows=7)</msg>
-<status status="PASS" starttime="20240308 11:39:19.726" endtime="20240308 11:39:19.729"/>
+<msg timestamp="20240308 17:46:21.099" level="INFO">4</msg>
+<status status="PASS" starttime="20240308 17:46:21.099" endtime="20240308 17:46:21.100"/>
 </kw>
-<kw name="Add Table Column" library="RPA.Tables">
-<arg>${orders}</arg>
-<arg>name=TOS</arg>
-<arg>values='nana'</arg>
-<doc>Append a column to a table.</doc>
-<status status="PASS" starttime="20240308 11:39:19.729" endtime="20240308 11:39:19.733"/>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>( 0,500 )</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20240308 17:46:21.101" level="INFO">Executing JavaScript:
+( 0,500 )
+Without any arguments.</msg>
+<status status="PASS" starttime="20240308 17:46:21.100" endtime="20240308 17:46:21.379"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${no}</var>
+<value>${BB}</value>
+<iter>
+<var name="${no}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>(//button[text()='✓'])[${no}+1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:21.384" level="INFO">Clicking element '(//button[text()='✓'])[0+1]'.</msg>
+<status status="PASS" starttime="20240308 17:46:21.383" endtime="20240308 17:46:21.947"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${orders}</arg>
+<arg>${no}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240308 11:39:19.734" level="INFO">Table(columns=['test1', 'TOS'], rows=7)</msg>
-<status status="PASS" starttime="20240308 11:39:19.734" endtime="20240308 11:39:19.735"/>
+<msg timestamp="20240308 17:46:21.948" level="INFO">0</msg>
+<status status="PASS" starttime="20240308 17:46:21.947" endtime="20240308 17:46:21.948"/>
 </kw>
-<kw name="Add Table Row" library="RPA.Tables">
-<arg>${orders}</arg>
-<arg>testerer</arg>
-<doc>Append rows to a table.</doc>
-<status status="PASS" starttime="20240308 11:39:19.736" endtime="20240308 11:39:19.736"/>
+<status status="PASS" starttime="20240308 17:46:21.382" endtime="20240308 17:46:21.950"/>
+</iter>
+<iter>
+<var name="${no}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>(//button[text()='✓'])[${no}+1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:21.951" level="INFO">Clicking element '(//button[text()='✓'])[1+1]'.</msg>
+<status status="PASS" starttime="20240308 17:46:21.950" endtime="20240308 17:46:22.293"/>
 </kw>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${orders}</var>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240308 11:39:19.737" level="INFO">${orders} = [{'A': 'test1'}, {'A': 'test2'}, {'A': 'test3'}, {'A': 'test4'}, {'A': 'test5'}, {'A': 'test6'}, {'A': 'test7'}, {'A': 'test8'}]</msg>
-<status status="PASS" starttime="20240308 11:39:19.736" endtime="20240308 11:39:19.737"/>
+<kw name="Log" library="BuiltIn">
+<arg>${no}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240308 17:46:22.294" level="INFO">1</msg>
+<status status="PASS" starttime="20240308 17:46:22.293" endtime="20240308 17:46:22.294"/>
 </kw>
-<status status="PASS" starttime="20240308 11:39:19.690" endtime="20240308 11:39:19.737"/>
+<status status="PASS" starttime="20240308 17:46:21.950" endtime="20240308 17:46:22.294"/>
+</iter>
+<iter>
+<var name="${no}">2</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>(//button[text()='✓'])[${no}+1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:22.296" level="INFO">Clicking element '(//button[text()='✓'])[2+1]'.</msg>
+<status status="PASS" starttime="20240308 17:46:22.295" endtime="20240308 17:46:22.562"/>
 </kw>
-<status status="PASS" starttime="20240308 11:39:19.688" endtime="20240308 11:39:19.739"/>
+<kw name="Log" library="BuiltIn">
+<arg>${no}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240308 17:46:22.563" level="INFO">2</msg>
+<status status="PASS" starttime="20240308 17:46:22.563" endtime="20240308 17:46:22.564"/>
+</kw>
+<status status="PASS" starttime="20240308 17:46:22.295" endtime="20240308 17:46:22.565"/>
+</iter>
+<iter>
+<var name="${no}">3</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>(//button[text()='✓'])[${no}+1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240308 17:46:22.567" level="INFO">Clicking element '(//button[text()='✓'])[3+1]'.</msg>
+<status status="PASS" starttime="20240308 17:46:22.566" endtime="20240308 17:46:22.815"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${no}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240308 17:46:22.817" level="INFO">3</msg>
+<status status="PASS" starttime="20240308 17:46:22.816" endtime="20240308 17:46:22.818"/>
+</kw>
+<status status="PASS" starttime="20240308 17:46:22.565" endtime="20240308 17:46:22.818"/>
+</iter>
+<status status="PASS" starttime="20240308 17:46:21.380" endtime="20240308 17:46:22.819"/>
+</for>
+<status status="PASS" starttime="20240308 17:46:20.559" endtime="20240308 17:46:22.819"/>
+</kw>
+<status status="PASS" starttime="20240308 17:45:58.017" endtime="20240308 17:46:22.821"/>
 </test>
-<status status="PASS" starttime="20240308 11:39:18.860" endtime="20240308 11:39:19.746"/>
+<status status="PASS" starttime="20240308 17:45:55.615" endtime="20240308 17:46:22.833"/>
 </suite>
 <statistics>
 <total>
@@ -77,5 +182,6 @@
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20240308 17:46:21.054" level="WARN">Keyword 'Get Element Count' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Count' or 'XML.Get Element Count'.</msg>
 </errors>
 </robot>

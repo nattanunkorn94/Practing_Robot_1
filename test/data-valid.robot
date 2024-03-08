@@ -6,7 +6,7 @@ Library           SeleniumLibrary
 ${url_todo}        https://web-demo.qahive.com/todo-list 
 ${title_H1}            Todo List
 
-
+@{list2}             
 
 
 # Form page

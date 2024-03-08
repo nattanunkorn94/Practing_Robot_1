@@ -1,13 +1,16 @@
-1709715838748	geckodriver	INFO	Listening on 127.0.0.1:59699
-1709715838765	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofile2T19Tj"
+1709891176280	geckodriver	INFO	Listening on 127.0.0.1:56243
+1709891176318	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofileRwyrEA"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1709715840320	Marionette	INFO	Marionette enabled
+1709891178719	Marionette	INFO	Marionette enabled
 console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
-1709715840697	Marionette	INFO	Listening on port 59708
-WebDriver BiDi listening on ws://127.0.0.1:59700
-Read port: 59708
-1709715841628	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:59700/devtools/browser/71c2333d-d47b-44de-a14e-10e2d0aeaec1
-1709715872689	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-1709716203944	Marionette	INFO	Stopped listening on port 59708
+1709891179288	Marionette	INFO	Listening on port 57548
+WebDriver BiDi listening on ws://127.0.0.1:56245
+Read port: 57548
+1709891180437	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56245/devtools/browser/aecaf95e-262f-4eca-9f51-07cddc5119b3
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+1709891211407	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1709891765675	Marionette	INFO	Stopped listening on port 57548

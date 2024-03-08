@@ -1,0 +1,18 @@
+1709888478891	geckodriver	INFO	Listening on 127.0.0.1:49810
+1709888478912	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofile5lVtAc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1709888480916	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1709888481470	Marionette	INFO	Listening on port 49833
+WebDriver BiDi listening on ws://127.0.0.1:49811
+Read port: 49833
+1709888482153	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:49811/devtools/browser/8f0d3a55-bb92-4d39-b997-7b3d3f13c8ec
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+JavaScript warning: https://web-demo.qahive.com/static/js/main.ef91fa3b.js, line 1: Script terminated by timeout at:
+_a@https://web-demo.qahive.com/static/js/main.ef91fa3b.js:1:94334
+
+1709888507964	Marionette	INFO	Stopped listening on port 49833

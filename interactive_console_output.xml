@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on darwin)" generated="2024-03-05T11:40:32.117566" rpa="false" schemaversion="5">
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240308 16:12:23.246" rpa="false" schemaversion="4">
 <suite id="s1" name="Robot Interactive Console" source="/Users/cococake/.vscode/extensions/robocorp.robotframework-lsp-1.11.0/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
-<kw name="Interpreter Main Loop" owner="MainLoop">
-<status status="PASS" start="2024-03-05T11:40:32.150726" elapsed="5.630527"/>
+<kw name="Interpreter Main Loop" library="MainLoop">
+<status status="PASS" starttime="20240308 16:12:23.282" endtime="20240308 16:12:26.278"/>
 </kw>
-<status status="PASS" start="2024-03-05T11:40:32.149988" elapsed="5.631820"/>
+<status status="PASS" starttime="20240308 16:12:23.282" endtime="20240308 16:12:26.279"/>
 </test>
-<status status="PASS" start="2024-03-05T11:40:32.119080" elapsed="5.663896"/>
+<status status="PASS" starttime="20240308 16:12:23.248" endtime="20240308 16:12:26.281"/>
 </suite>
 <statistics>
 <total>
@@ -20,6 +20,5 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2024-03-05T11:40:32.110925" level="WARN">Error in file '/Users/cococake/.vscode/extensions/robocorp.robotframework-lsp-1.11.0/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot' on line 4: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
 </errors>
 </robot>

@@ -1,0 +1,26 @@
+1709892972021	geckodriver	INFO	Listening on 127.0.0.1:64420
+1709892972062	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofileVvCshH"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1709892974446	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1709892975226	Marionette	INFO	Listening on port 64443
+WebDriver BiDi listening on ws://127.0.0.1:64421
+Read port: 64443
+1709892976268	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64421/devtools/browser/53dfa31d-4afd-4ab3-ab01-df49a28c083e
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+1709893004470	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 3770: TypeError: this._windows[aWindow.__SSi] is undefined
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c, line 161: Script terminated by timeout at:
+l@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:161:17
+lB@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:493:134
+mB/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:493:111
+
+1709893021909	Marionette	INFO	Stopped listening on port 64443
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
