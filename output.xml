@@ -1,70 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240311 10:37:29.124" rpa="false" schemaversion="4">
-<suite id="s1" name="ToDoPage" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/ToDoPage.robot">
-<test id="s1-t1" name="เปิดหน้า generate" line="33">
-<kw name="open Exel Sheet" library="KeyWord">
-<kw name="Open Workbook" library="RPA.Excel.Files">
-<arg>/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/../testbook2.xlsx</arg>
-<doc>Open an existing Excel workbook.</doc>
-<msg timestamp="20240311 10:37:30.573" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x1105b0790&gt;</msg>
-<status status="PASS" starttime="20240311 10:37:30.373" endtime="20240311 10:37:30.575"/>
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240311 15:29:55.174" rpa="false" schemaversion="4">
+<suite id="s1" name="Collection-test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/Collection-test.robot">
+<test id="s1-t1" name="Test1" line="20">
+<kw name="Test-1 'a'" sourcename="Test-1 ${message-1}">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url_todo}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240311 15:29:55.877" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
+<status status="PASS" starttime="20240311 15:29:55.876" endtime="20240311 15:30:01.197"/>
 </kw>
-<kw name="Set Active Worksheet" library="RPA.Excel.Files">
-<arg>Summary</arg>
-<doc>Set the active worksheet.</doc>
-<status status="PASS" starttime="20240311 10:37:30.575" endtime="20240311 10:37:30.576"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//h1[text()='Todo List']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240311 15:30:01.198" endtime="20240311 15:30:01.263"/>
 </kw>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${data}</var>
-<arg>header=${TRUE}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 10:37:30.578" level="INFO">${data} = [{'ODDS Access Card': 'บ้าน', 'ข่าวสาร': 'โปรดติดตามข้อมูลเกี่ยวกับ\nที่จอดรถยนต์ภายหลัง'}, {'ODDS Access Card': 'โจรสลัด', 'ข่าวสาร': None}, {'ODDS Access Card': 'LeSSEx', 'ข่าวสาร': None}, {'ODDS Ac...</msg>
-<status status="PASS" starttime="20240311 10:37:30.576" endtime="20240311 10:37:30.578"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//b[text()='Add Todo']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240311 15:30:01.263" endtime="20240311 15:30:01.294"/>
 </kw>
-<kw name="Create Table" library="RPA.Tables">
-<var>${orders}</var>
-<arg>${data}</arg>
-<doc>Create Table object from data.</doc>
-<msg timestamp="20240311 10:37:30.582" level="INFO">Created table: Table(columns=['ODDS Access Card', 'ข่าวสาร'], rows=16)</msg>
-<msg timestamp="20240311 10:37:30.582" level="INFO">${orders} = Table(columns=['ODDS Access Card', 'ข่าวสาร'], rows=16)</msg>
-<status status="PASS" starttime="20240311 10:37:30.579" endtime="20240311 10:37:30.582"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//input[@data-testid='inputTodo']</arg>
+<arg>${message-1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240311 15:30:01.295" level="INFO">Typing text ''a'' into text field '//input[@data-testid='inputTodo']'.</msg>
+<status status="PASS" starttime="20240311 15:30:01.294" endtime="20240311 15:30:01.412"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240311 15:30:01.415" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240311 15:30:01.413" endtime="20240311 15:30:01.755"/>
+</kw>
+<kw name="Convert To List" library="Collections">
+<var>${a}</var>
+<arg>(//div[@class='card-body'])[3]</arg>
+<doc>Converts the given ``item`` to a Python ``list`` type.</doc>
+<msg timestamp="20240311 15:30:01.756" level="INFO">${a} = ['(', '/', '/', 'd', 'i', 'v', '[', '@', 'c', 'l', 'a', 's', 's', '=', "'", 'c', 'a', 'r', 'd', '-', 'b', 'o', 'd', 'y', "'", ']', ')', '[', '3', ']']</msg>
+<status status="PASS" starttime="20240311 15:30:01.756" endtime="20240311 15:30:01.756"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${list2}</arg>
+<arg>@{a}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240311 15:30:01.757" endtime="20240311 15:30:01.759"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${orders}</arg>
+<arg>${list2}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 10:37:30.586" level="INFO">Table(columns=['ODDS Access Card', 'ข่าวสาร'], rows=16)</msg>
-<status status="PASS" starttime="20240311 10:37:30.585" endtime="20240311 10:37:30.586"/>
+<msg timestamp="20240311 15:30:01.760" level="INFO">['5', '6', '7', '8', '(', '/', '/', 'd', 'i', 'v', '[', '@', 'c', 'l', 'a', 's', 's', '=', "'", 'c', 'a', 'r', 'd', '-', 'b', 'o', 'd', 'y', "'", ']', ')', '[', '3', ']']</msg>
+<status status="PASS" starttime="20240311 15:30:01.760" endtime="20240311 15:30:01.760"/>
 </kw>
-<kw name="Add Table Column" library="RPA.Tables">
-<arg>${orders}</arg>
-<arg>name=TOS</arg>
-<arg>values='nana'</arg>
-<doc>Append a column to a table.</doc>
-<status status="PASS" starttime="20240311 10:37:30.587" endtime="20240311 10:37:30.588"/>
+<status status="PASS" starttime="20240311 15:29:55.876" endtime="20240311 15:30:01.761"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${orders}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 10:37:30.589" level="INFO">Table(columns=['ODDS Access Card', 'ข่าวสาร', 'TOS'], rows=16)</msg>
-<status status="PASS" starttime="20240311 10:37:30.588" endtime="20240311 10:37:30.589"/>
-</kw>
-<kw name="Add Table Row" library="RPA.Tables">
-<arg>${orders}</arg>
-<arg>testerer</arg>
-<doc>Append rows to a table.</doc>
-<status status="PASS" starttime="20240311 10:37:30.589" endtime="20240311 10:37:30.590"/>
-</kw>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${orders}</var>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 10:37:30.591" level="INFO">${orders} = [{'A': 'ODDS Access Card', 'B': None, 'C': None, 'D': None, 'E': 'ข่าวสาร'}, {'A': 'บ้าน', 'B': 'Access Cards', 'C': 'Cars', 'D': None, 'E': 'โปรดติดตามข้อมูลเกี่ยวกับ\nที่จอดรถยนต์ภายหลัง'}, {'A': 'โ...</msg>
-<status status="PASS" starttime="20240311 10:37:30.590" endtime="20240311 10:37:30.591"/>
-</kw>
-<status status="PASS" starttime="20240311 10:37:30.372" endtime="20240311 10:37:30.592"/>
-</kw>
-<status status="PASS" starttime="20240311 10:37:30.371" endtime="20240311 10:37:30.592"/>
+<status status="PASS" starttime="20240311 15:29:55.875" endtime="20240311 15:30:01.762"/>
 </test>
-<status status="PASS" starttime="20240311 10:37:29.129" endtime="20240311 10:37:30.593"/>
+<status status="PASS" starttime="20240311 15:29:55.180" endtime="20240311 15:30:01.763"/>
 </suite>
 <statistics>
 <total>
@@ -73,10 +64,9 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="ToDoPage">ToDoPage</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Collection-test">Collection-test</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20240311 10:37:30.369" level="WARN">Imported library '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/.venv/lib/python3.11/site-packages/RPA/Desktop/__init__.py' contains no keywords.</msg>
 </errors>
 </robot>

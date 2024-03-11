@@ -32,7 +32,7 @@ User เข้าไปทำการเพิ่ม แล้ว make it done 
 
 เปิดหน้า generate
     # เปิดหน้า generate
-    open Exel Sheet
+    open Exel Sheet testbook2.xlsx
     
 
 

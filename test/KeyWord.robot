@@ -107,8 +107,8 @@ Open ToDoList Page
     Click Button    //button[text()='Export']
     # Click Element    //li[text()='Download as CSV']
 
-open Exel Sheet
-    Open Workbook     ${CURDIR}/../testbook2.xlsx
+open Exel Sheet ${workbook}
+    Open Workbook     ${CURDIR}/../${workbook}
     Set Active Worksheet    Summary
     ${data}    Read Worksheet    header=${TRUE}
     ${orders}=       Create table     ${data}
@@ -117,8 +117,8 @@ open Exel Sheet
     # [Return]         ${orders}
     Log   ${orders}
 
-    Add table row    ${orders}   testerer
-    ${orders}    Read Worksheet    
+    # Add table row    ${orders}   testerer
+    # ${orders}    Read Worksheet    
   
     
     
