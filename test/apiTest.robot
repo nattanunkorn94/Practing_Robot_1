@@ -18,10 +18,10 @@ Library         BuiltIn
 POST TEST for reqres.on - 1
     # ${response}=    GET  https://api-web-demo.qahive.com
     # ${stations_response}    POST    https://api.nationalize.io/?name=nathaniel 
-     ${aa}    Create Dictionary    email=eve.holt@reqres.in   password=cityslicka
-     Log      ${aa}
+     ${res}    Create Dictionary    email=eve.holt@reqres.in   password=cityslicka
+     Log      ${res}
     
-    ${response}    POST    url=https://reqres.in/api/login    json=${aa}
+    ${response}    POST    url=https://reqres.in/api/login    json=${res}
     Log    ${response.json()}   
     ${token}    Set Variable    ${response.json()}[token]
     Log    ${token}
@@ -30,7 +30,7 @@ POST TEST for reqres.on - 1
     # Should Be Equal As Strings    ${expectedname}   ${name}
     # Log    ${email}
 
-    # ${response}=    POST    url=https://reqres.in/api/users    json=${aa}
+    # ${response}=    POST    url=https://reqres.in/api/users    json=${res}
     # Log    ${response.json()}
     # ${token}    Set Variable    ${response.json()}[token]
     # -------เทียบ value
@@ -57,10 +57,7 @@ Quick Get A JSON Body Test
     ${response}=    GET  https://jsonplaceholder.typicode.com/posts/1
     # ถ้าเก็บ respon คือ status ถ้าเอา respon.jsonถึงจะได้ parameter
     Should Be Equal As Strings    1  ${response.json()}[id]
-
-    ${title}=     Get From Dictionary    ${response.json()}    title
-    Log    ${title}
-    Log    ${response}
+    # Response Status should be Success    
     # respon = status
 
 
