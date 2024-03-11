@@ -10,17 +10,19 @@ Resource   KeyWord.robot
 
 
 *** Test Cases ***
-User เข้าไปทำการเพิ่ม ToDo List 
+User เข้าไปทำการเพิ่ม แล้ว make it done แล้ว delete
     Open ToDoList Page
     เพิ่ม Todo List 'อันที่2' 
     เพิ่ม Todo List 'อันที่3'
     เพิ่ม Todo List 'อันที่4'
-    
-    # ลบ todo list ลำดับที่'1'
-    # เพิ่ม Todo List 'อันที่1'
-    # ทำ todo list ลำดับที่'1'
+
     ทำ todo list เสร็จทั้งหมด
-    
+    ลบ todo list ได้ทั้งหมด
+   
+   
+
+
+
 สมัคร Form สำเร็จ
     กรอกข้อมูล user 'username' 'firstname' 'lastname'
     เลือกเพศ 'Female'

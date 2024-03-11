@@ -5,6 +5,7 @@ Resource          data-valid.robot
 Library      RPA.Excel.Files
 Library    RPA.Tables
 Library    Collections
+Library    ../.venv/lib/python3.11/site-packages/RPA/Desktop/__init__.py
 # *** Variable ***
 # ${url_facebook}        https://web-demo.qahive.com/todo-list 
 # ${title_H1}            Todo List
@@ -57,7 +58,8 @@ Open ToDoList Page
     Maximize Browser Window
     ${BB} =  Get Element Count      //button[text()='✓']
     Log     ${BB} 
-    Execute Javascript    ( 0,500 ) 
+    # Execute Javascript    ( 0,500 ) 
+    # ยังทำ scroll to view ไม่ได้
      FOR    ${no}    IN RANGE   ${BB}
         # Scroll Element Into View    (//button[@type='button'])[6]
         # Wait Until Element Is Visible    (//button[@type='button'])[6]  timeout=6000
@@ -65,7 +67,15 @@ Open ToDoList Page
         Log    ${no}
      END
 
+ลบ todo list ได้ทั้งหมด
+    # Click Element   (//button[text()='✕'])[1]
+    ${nn}=  Get Element Count    //button[@data-testid='markRemove']
+    Log     ${nn}
 
+    FOR   ${var}    IN RANGE    ${nn}
+    Click Element    //button[text()='✕']
+    END
+    
 
 
 กรอกข้อมูล user '${username}' '${firstname}' '${lastname}'
@@ -99,7 +109,7 @@ Open ToDoList Page
 
 open Exel Sheet
     Open Workbook     ${CURDIR}/../testbook2.xlsx
-    Set Active Worksheet    FlatWhi te
+    Set Active Worksheet    Summary
     ${data}    Read Worksheet    header=${TRUE}
     ${orders}=       Create table     ${data}
     Log   ${orders}
