@@ -6,16 +6,6 @@ Library      RPA.Excel.Files
 Library    RPA.Tables
 Library    Collections
 Library    ../.venv/lib/python3.11/site-packages/RPA/Desktop/__init__.py
-# *** Variable ***
-# ${url_facebook}        https://web-demo.qahive.com/todo-list 
-# ${title_H1}            Todo List
-# ${input_user}          id:email
-# ${input_pass}          id:pass
-# ${btn_login}           id:loginbutton
-# ${message-1}           eating dinner
-# ${message-2}           taking shower
-# ${message-3}           go to bed
-
 
 
 
@@ -112,15 +102,8 @@ open Exel Sheet ${workbook}
     Set Active Worksheet    Summary
     ${data}    Read Worksheet    header=${TRUE}
     ${orders}=       Create table     ${data}
-    Log   ${orders}
     Add table column    ${orders}    name=TOS    values='nana'
-    # [Return]         ${orders}
     Log   ${orders}
 
-    # Add table row    ${orders}   testerer
-    # ${orders}    Read Worksheet    
-  
-    
-    
-    # [Teardown]       Close workbook
+
     

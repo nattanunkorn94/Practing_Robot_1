@@ -3,7 +3,7 @@ Library           SeleniumLibrary
 
 *** Variable ***
 # todo page
-${url_todo}        https://web-demo.qahive.com/todo-list 
+${url_todo}            https://web-demo.qahive.com/todo-list 
 ${title_H1}            Todo List
 
 @{list2}             

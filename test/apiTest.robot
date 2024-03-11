@@ -89,3 +89,5 @@ Get API methods
 Response Status should be Success
     [Arguments]    ${resp}
     Should Be Equal As Strings    ${resp.status_code}    200
+    Log    ${resp.status_code}
+    Log    ${resp}
