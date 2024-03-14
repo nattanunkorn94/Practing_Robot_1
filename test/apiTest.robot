@@ -26,16 +26,7 @@ POST TEST for reqres.on - 1
     ${token}    Set Variable    ${response.json()}[token]
     Log    ${token}
 
-    #  ${email}=    Get From Dictionary     ${aa.json()}    email
-    # Should Be Equal As Strings    ${expectedname}   ${name}
-    # Log    ${email}
 
-    # ${response}=    POST    url=https://reqres.in/api/users    json=${res}
-    # Log    ${response.json()}
-    # ${token}    Set Variable    ${response.json()}[token]
-    # -------เทียบ value
-    # ${bb}     == {"token":"QpwL5tke4Pnpja7X4"}
-    # Lists Should Be Equal    ${token}      token:QpwL5tke4Pnpja7X4
 
 
 POST TEST for reqres.on - 2
