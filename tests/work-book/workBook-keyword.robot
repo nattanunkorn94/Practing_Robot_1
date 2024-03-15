@@ -16,7 +16,7 @@ Get row count in the sheet
     [Return]         ${rows}
     
 นับจำนวนคนจาก sheet ทั้งหมด
-    Open Workbook    ${CURDIR}/../testbook2.xlsx
+    Open Workbook    testbook2.xlsx
     @{sheets}=   List Worksheets
     FOR  ${sheet}  IN   @{sheets}
     # loop ใน 1 sheet
@@ -26,7 +26,8 @@ Get row count in the sheet
     END
 
 นับจำนวนคนในชีท ${sheet} 
-    Open Workbook    ${CURDIR}/../testbook2.xlsx
+    Open Workbook    testbook2.xlsx
     ${count}=  Get row count in the sheet     ${sheet} 
         #นับ row
     Log   หน้า ${sheet} มี ${count-1} แถว
+

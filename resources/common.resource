@@ -8,7 +8,6 @@ Library     XML
 Library     RequestsLibrary
 Library     RPA.JSON
 Library     JSONLibrary
-Library     Collections
 Library     String
 Library     BuiltIn
 

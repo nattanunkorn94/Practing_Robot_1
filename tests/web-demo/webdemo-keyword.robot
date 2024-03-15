@@ -98,7 +98,7 @@ Open ToDoList Page
 
 ##### Exel , WorkBook #####
 open Exel Sheet ${workbook}
-    Open Workbook     ${CURDIR}/../${workbook}
+    Open Workbook    ${workbook}
     Set Active Worksheet    Summary
     ${data}    Read Worksheet    header=${TRUE}
     ${orders}=       Create table     ${data}

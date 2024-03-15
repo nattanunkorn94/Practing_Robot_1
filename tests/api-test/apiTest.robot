@@ -8,9 +8,6 @@ Library     BuiltIn
 # Library    RPA.HTTP
 
 
-*** Variables ***
-# ${url}
-
 
 *** Test Cases ***
 POST TEST for reqres.on - 1

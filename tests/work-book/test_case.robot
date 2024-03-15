@@ -2,8 +2,7 @@
 Library    SeleniumLibrary
 Library    BuiltIn
 Library    String
-Resource   Collection-keyword.robot
-
+Resource   workBook-keyword.robot
 
 # Suite Setup        Open Browser    about:blank    chrome
 # Suite Teardown     Close All Browsers
@@ -11,8 +10,7 @@ Resource   Collection-keyword.robot
 
 
 *** Test Cases ***
-Test1
-    Test-1 'a'
 
-
-    
+test101
+    นับจำนวนคนในชีท Summary
+    นับจำนวนคนจาก sheet ทั้งหมด
