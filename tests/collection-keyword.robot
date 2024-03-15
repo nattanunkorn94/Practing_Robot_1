@@ -14,3 +14,10 @@ Test-1 ${message-1}
     ${a}    Convert To List    (//div[@class='card-body'])[3]
     Append To List    ${list2}    @{a}
     Log    ${list2}
+
+
+Get Weather3Hours
+    [Arguments]    ${params}
+    Create Session    tmd     http://data.tmd.go.th/api
+    ${resp}=  GET On Session   tmd    /Weather3Hours/V1    params=${params}
+    Return From Keyword    ${resp}

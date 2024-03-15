@@ -8,12 +8,13 @@ Library     BuiltIn
 # Library    RPA.HTTP
 
 
+Resource    api_keyword.robot
 
 *** Test Cases ***
 POST TEST for reqres.on - 1
     # ${response}=    GET    https://api-web-demo.qahive.com
     # ${stations_response}    POST    https://api.nationalize.io/?name=nathaniel
-    ${res}=    Create Dictionary    email=eve.holt@reqres.in    password=cityslicka
+    ${res}=    Create Dictionary    email=eve.holt@reqres.in    password=cityslicka type=json
     Log    ${res}
 
     ${response}=    POST    url=https://reqres.in/api/login    json=${res}
@@ -43,7 +44,7 @@ Quick Get A JSON Body Test
 Get API Should Success and return data
     &{params}=    Create Dictionary    name=cake
     # Log    ${params}
-    ${resp}=    Get API methods    ${params}
+    ${resp}=      Get API methods    ${params}
     Status Should Be    200    ${resp}
     Log    ${resp}
 
@@ -51,16 +52,4 @@ Get API Should Success and return data
     # Response Status should be Success    ${resp}
 
 
-*** Keywords ***
-Get API methods
-    [Arguments]    ${params}
-    Create Session    tmd    https://reqres.in/api
-    ${resp}=    GET On Session    tmd    /login    params=${params}
-#    /Weather3Hours/V1
-    RETURN    ${resp}
 
-Response Status should be Success
-    [Arguments]    ${resp}
-    Should Be Equal As Strings    ${resp.status_code}    200
-    Log    ${resp.status_code}
-    Log    ${resp}

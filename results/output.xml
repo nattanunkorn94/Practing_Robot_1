@@ -1,448 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240315 16:32:39.907" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240315 17:41:49.676" rpa="false" schemaversion="4">
 <suite id="s1" name="Practing Robot 1" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1">
 <suite id="s1-s1" name="Tests" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests">
-<suite id="s1-s1-s1" name="Work-Book" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/work-book">
-<suite id="s1-s1-s1-s1" name="Test Case" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/work-book/test_case.robot">
-<test id="s1-s1-s1-s1-t1" name="test101" line="14">
-<kw name="นับจำนวนคนในชีท Summary" library="workBook-keyword" sourcename="นับจำนวนคนในชีท ${sheet}">
-<kw name="Open Workbook" library="RPA.Excel.Files">
-<arg>testbook2.xlsx</arg>
-<doc>Open an existing Excel workbook.</doc>
-<msg timestamp="20240315 16:32:42.339" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10971c450&gt;</msg>
-<status status="PASS" starttime="20240315 16:32:41.908" endtime="20240315 16:32:42.339"/>
-</kw>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:42.343" level="INFO">${sheet} = [{'A': 'ODDS Access Card', 'B': None, 'C': None, 'D': None, 'E': 'ข่าวสาร'}, {'A': 'บ้าน', 'B': 'Access Cards', 'C': 'Cars', 'D': None, 'E': 'โปรดติดตามข้อมูลเกี่ยวกับ\nที่จอดรถยนต์ภายหลัง'}, {'A': 'โ...</msg>
-<status status="PASS" starttime="20240315 16:32:42.341" endtime="20240315 16:32:42.344"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:42.345" level="INFO">Length is 17</msg>
-<msg timestamp="20240315 16:32:42.345" level="INFO">${rows} = 17</msg>
-<status status="PASS" starttime="20240315 16:32:42.344" endtime="20240315 16:32:42.346"/>
-</kw>
-<msg timestamp="20240315 16:32:42.346" level="INFO">${count} = 17</msg>
-<status status="PASS" starttime="20240315 16:32:42.340" endtime="20240315 16:32:42.346"/>
+<suite id="s1-s1-s1" name="Api-Test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/api-test">
+<suite id="s1-s1-s1-s1" name="apiTest" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/api-test/apiTest.robot">
+<test id="s1-s1-s1-s1-t1" name="POST TEST for reqres.on - 1" line="14">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${res}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=cityslicka type=json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240315 17:41:50.984" level="INFO">${res} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka type=json'}</msg>
+<status status="PASS" starttime="20240315 17:41:50.980" endtime="20240315 17:41:50.984"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
+<arg>${res}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:42.348" level="INFO">หน้า Summary มี 16 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:42.347" endtime="20240315 16:32:42.349"/>
+<msg timestamp="20240315 17:41:50.987" level="INFO">{'email': 'eve.holt@reqres.in', 'password': 'cityslicka type=json'}</msg>
+<status status="PASS" starttime="20240315 17:41:50.986" endtime="20240315 17:41:50.988"/>
 </kw>
-<status status="PASS" starttime="20240315 16:32:41.894" endtime="20240315 16:32:42.349"/>
-</kw>
-<kw name="นับจำนวนคนจาก sheet ทั้งหมด" library="workBook-keyword">
-<kw name="Open Workbook" library="RPA.Excel.Files">
-<arg>testbook2.xlsx</arg>
-<doc>Open an existing Excel workbook.</doc>
-<msg timestamp="20240315 16:32:42.351" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10971c450&gt;</msg>
-<msg timestamp="20240315 16:32:43.046" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10995df90&gt;</msg>
-<status status="PASS" starttime="20240315 16:32:42.350" endtime="20240315 16:32:43.046"/>
-</kw>
-<kw name="List Worksheets" library="RPA.Excel.Files">
-<var>@{sheets}</var>
-<doc>List all names of worksheets in the given workbook.</doc>
-<msg timestamp="20240315 16:32:43.048" level="INFO">@{sheets} = [ Summary | โจรสลัด | Database | LeSSEx | SakSiam | SET-LiVE | FlatWhite | XSpring | TISCO | MedPark | Jago | Template ]</msg>
-<status status="PASS" starttime="20240315 16:32:43.047" endtime="20240315 16:32:43.048"/>
-</kw>
-<for flavor="IN">
-<var>${sheet}</var>
-<value>@{sheets}</value>
-<iter>
-<var name="${sheet}">Summary</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.054" level="INFO">${sheet} = [{'A': 'ODDS Access Card', 'B': None, 'C': None, 'D': None, 'E': 'ข่าวสาร'}, {'A': 'บ้าน', 'B': 'Access Cards', 'C': 'Cars', 'D': None, 'E': 'โปรดติดตามข้อมูลเกี่ยวกับ\nที่จอดรถยนต์ภายหลัง'}, {'A': 'โ...</msg>
-<status status="PASS" starttime="20240315 16:32:43.051" endtime="20240315 16:32:43.056"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.057" level="INFO">Length is 17</msg>
-<msg timestamp="20240315 16:32:43.058" level="INFO">${rows} = 17</msg>
-<status status="PASS" starttime="20240315 16:32:43.057" endtime="20240315 16:32:43.058"/>
-</kw>
-<msg timestamp="20240315 16:32:43.059" level="INFO">${count} = 17</msg>
-<status status="PASS" starttime="20240315 16:32:43.050" endtime="20240315 16:32:43.059"/>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=https://reqres.in/api/login</arg>
+<arg>json=${res}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20240315 17:41:51.586" level="INFO">POST Request : url=https://reqres.in/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"email": "eve.holt@reqres.in", "password": "cityslicka type=json"}' 
+ </msg>
+<msg timestamp="20240315 17:41:51.587" level="INFO">POST Response : url=https://reqres.in/api/login 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 15 Mar 2024 10:41:51 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '29', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1710499311&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=KsqaW1ZtXuYvtXXkN6bMfidK8mGn4O9BE8bommd%2FzCE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1710499311&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=KsqaW1ZtXuYvtXXkN6bMfidK8mGn4O9BE8bommd%2FzCE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '864be4b71a7f7dc1-BKK'} 
+ body={"token":"QpwL5tke4Pnpja7X4"} 
+ </msg>
+<msg timestamp="20240315 17:41:51.587" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240315 17:41:50.989" endtime="20240315 17:41:51.589"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
+<arg>${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.061" level="INFO">หน้า Summary มี 16 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.059" endtime="20240315 16:32:43.062"/>
+<msg timestamp="20240315 17:41:51.592" level="INFO">{'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<status status="PASS" starttime="20240315 17:41:51.590" endtime="20240315 17:41:51.592"/>
 </kw>
-<status status="PASS" starttime="20240315 16:32:43.049" endtime="20240315 16:32:43.062"/>
-</iter>
-<iter>
-<var name="${sheet}">โจรสลัด</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.070" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.067" endtime="20240315 16:32:43.071"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.072" level="INFO">Length is 40</msg>
-<msg timestamp="20240315 16:32:43.072" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.071" endtime="20240315 16:32:43.072"/>
-</kw>
-<msg timestamp="20240315 16:32:43.075" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.066" endtime="20240315 16:32:43.077"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${token}</var>
+<arg>${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240315 17:41:51.596" level="INFO">${token} = QpwL5tke4Pnpja7X4</msg>
+<status status="PASS" starttime="20240315 17:41:51.594" endtime="20240315 17:41:51.597"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
+<arg>${token}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.080" level="INFO">หน้า โจรสลัด มี 39 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.078" endtime="20240315 16:32:43.080"/>
+<msg timestamp="20240315 17:41:51.599" level="INFO">QpwL5tke4Pnpja7X4</msg>
+<status status="PASS" starttime="20240315 17:41:51.598" endtime="20240315 17:41:51.599"/>
 </kw>
-<status status="PASS" starttime="20240315 16:32:43.063" endtime="20240315 16:32:43.080"/>
-</iter>
-<iter>
-<var name="${sheet}">Database</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.085" level="INFO">${sheet} = [{'A': 'Provice', 'B': None}, {'A': 'กรุงเทพมหานคร', 'B': None}, {'A': 'กระบี่', 'B': None}, {'A': 'กาญจนบุรี', 'B': None}, {'A': 'กาฬสินธุ์', 'B': None}, {'A': 'กำแพงเพชร', 'B': None}, {'A': 'ขอนแก่น...</msg>
-<status status="PASS" starttime="20240315 16:32:43.083" endtime="20240315 16:32:43.085"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.086" level="INFO">Length is 78</msg>
-<msg timestamp="20240315 16:32:43.088" level="INFO">${rows} = 78</msg>
-<status status="PASS" starttime="20240315 16:32:43.086" endtime="20240315 16:32:43.089"/>
-</kw>
-<msg timestamp="20240315 16:32:43.090" level="INFO">${count} = 78</msg>
-<status status="PASS" starttime="20240315 16:32:43.081" endtime="20240315 16:32:43.090"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.093" level="INFO">หน้า Database มี 77 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.091" endtime="20240315 16:32:43.099"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.081" endtime="20240315 16:32:43.100"/>
-</iter>
-<iter>
-<var name="${sheet}">LeSSEx</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.105" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.101" endtime="20240315 16:32:43.105"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.106" level="INFO">Length is 25</msg>
-<msg timestamp="20240315 16:32:43.106" level="INFO">${rows} = 25</msg>
-<status status="PASS" starttime="20240315 16:32:43.105" endtime="20240315 16:32:43.106"/>
-</kw>
-<msg timestamp="20240315 16:32:43.107" level="INFO">${count} = 25</msg>
-<status status="PASS" starttime="20240315 16:32:43.100" endtime="20240315 16:32:43.107"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.109" level="INFO">หน้า LeSSEx มี 24 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.107" endtime="20240315 16:32:43.110"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.100" endtime="20240315 16:32:43.110"/>
-</iter>
-<iter>
-<var name="${sheet}">SakSiam</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.116" level="INFO">${sheet} = [{'A': '?', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None, 'N': N...</msg>
-<status status="PASS" starttime="20240315 16:32:43.113" endtime="20240315 16:32:43.117"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.118" level="INFO">Length is 40</msg>
-<msg timestamp="20240315 16:32:43.118" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.117" endtime="20240315 16:32:43.119"/>
-</kw>
-<msg timestamp="20240315 16:32:43.120" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.112" endtime="20240315 16:32:43.120"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.125" level="INFO">หน้า SakSiam มี 39 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.120" endtime="20240315 16:32:43.125"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.111" endtime="20240315 16:32:43.125"/>
-</iter>
-<iter>
-<var name="${sheet}">SET-LiVE</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.131" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.127" endtime="20240315 16:32:43.131"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.132" level="INFO">Length is 41</msg>
-<msg timestamp="20240315 16:32:43.133" level="INFO">${rows} = 41</msg>
-<status status="PASS" starttime="20240315 16:32:43.132" endtime="20240315 16:32:43.133"/>
-</kw>
-<msg timestamp="20240315 16:32:43.134" level="INFO">${count} = 41</msg>
-<status status="PASS" starttime="20240315 16:32:43.126" endtime="20240315 16:32:43.135"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.139" level="INFO">หน้า SET-LiVE มี 40 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.135" endtime="20240315 16:32:43.141"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.125" endtime="20240315 16:32:43.141"/>
-</iter>
-<iter>
-<var name="${sheet}">FlatWhite</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.147" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.143" endtime="20240315 16:32:43.148"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.149" level="INFO">Length is 40</msg>
-<msg timestamp="20240315 16:32:43.152" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.148" endtime="20240315 16:32:43.153"/>
-</kw>
-<msg timestamp="20240315 16:32:43.154" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.142" endtime="20240315 16:32:43.154"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.156" level="INFO">หน้า FlatWhite มี 39 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.154" endtime="20240315 16:32:43.158"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.142" endtime="20240315 16:32:43.158"/>
-</iter>
-<iter>
-<var name="${sheet}">XSpring</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.163" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.160" endtime="20240315 16:32:43.163"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.165" level="INFO">Length is 40</msg>
-<msg timestamp="20240315 16:32:43.167" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.164" endtime="20240315 16:32:43.168"/>
-</kw>
-<msg timestamp="20240315 16:32:43.169" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.159" endtime="20240315 16:32:43.169"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.172" level="INFO">หน้า XSpring มี 39 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.170" endtime="20240315 16:32:43.173"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.159" endtime="20240315 16:32:43.173"/>
-</iter>
-<iter>
-<var name="${sheet}">TISCO</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.178" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.175" endtime="20240315 16:32:43.178"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.180" level="INFO">Length is 40</msg>
-<msg timestamp="20240315 16:32:43.180" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.179" endtime="20240315 16:32:43.181"/>
-</kw>
-<msg timestamp="20240315 16:32:43.181" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.174" endtime="20240315 16:32:43.181"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.183" level="INFO">หน้า TISCO มี 39 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.182" endtime="20240315 16:32:43.183"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.174" endtime="20240315 16:32:43.183"/>
-</iter>
-<iter>
-<var name="${sheet}">MedPark</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.188" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.185" endtime="20240315 16:32:43.188"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.189" level="INFO">Length is 40</msg>
-<msg timestamp="20240315 16:32:43.190" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.189" endtime="20240315 16:32:43.190"/>
-</kw>
-<msg timestamp="20240315 16:32:43.190" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.185" endtime="20240315 16:32:43.190"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.192" level="INFO">หน้า MedPark มี 39 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.191" endtime="20240315 16:32:43.193"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.184" endtime="20240315 16:32:43.193"/>
-</iter>
-<iter>
-<var name="${sheet}">Jago</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.199" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.195" endtime="20240315 16:32:43.199"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.200" level="INFO">Length is 41</msg>
-<msg timestamp="20240315 16:32:43.200" level="INFO">${rows} = 41</msg>
-<status status="PASS" starttime="20240315 16:32:43.199" endtime="20240315 16:32:43.200"/>
-</kw>
-<msg timestamp="20240315 16:32:43.201" level="INFO">${count} = 41</msg>
-<status status="PASS" starttime="20240315 16:32:43.194" endtime="20240315 16:32:43.201"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.203" level="INFO">หน้า Jago มี 40 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.201" endtime="20240315 16:32:43.203"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.193" endtime="20240315 16:32:43.203"/>
-</iter>
-<iter>
-<var name="${sheet}">Template</var>
-<kw name="Get row count in the sheet" library="workBook-keyword">
-<var>${count}</var>
-<arg>${sheet}</arg>
-<kw name="Read Worksheet" library="RPA.Excel.Files">
-<var>${sheet}</var>
-<arg>${SHEET_NAME}</arg>
-<doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240315 16:32:43.212" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240315 16:32:43.209" endtime="20240315 16:32:43.212"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${rows}</var>
-<arg>${sheet}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240315 16:32:43.213" level="INFO">Length is 40</msg>
-<msg timestamp="20240315 16:32:43.213" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.212" endtime="20240315 16:32:43.213"/>
-</kw>
-<msg timestamp="20240315 16:32:43.213" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240315 16:32:43.208" endtime="20240315 16:32:43.214"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 16:32:43.216" level="INFO">หน้า Template มี 39 แถว</msg>
-<status status="PASS" starttime="20240315 16:32:43.214" endtime="20240315 16:32:43.216"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:43.204" endtime="20240315 16:32:43.216"/>
-</iter>
-<status status="PASS" starttime="20240315 16:32:43.048" endtime="20240315 16:32:43.216"/>
-</for>
-<status status="PASS" starttime="20240315 16:32:42.349" endtime="20240315 16:32:43.217"/>
-</kw>
-<status status="PASS" starttime="20240315 16:32:41.891" endtime="20240315 16:32:43.217"/>
+<status status="PASS" starttime="20240315 17:41:50.978" endtime="20240315 17:41:51.600"/>
 </test>
-<status status="PASS" starttime="20240315 16:32:40.190" endtime="20240315 16:32:43.219"/>
+<status status="PASS" starttime="20240315 17:41:49.800" endtime="20240315 17:41:51.602"/>
 </suite>
-<status status="PASS" starttime="20240315 16:32:40.182" endtime="20240315 16:32:43.222"/>
+<status status="PASS" starttime="20240315 17:41:49.798" endtime="20240315 17:41:51.606"/>
 </suite>
-<status status="PASS" starttime="20240315 16:32:40.176" endtime="20240315 16:32:43.224"/>
+<status status="PASS" starttime="20240315 17:41:49.793" endtime="20240315 17:41:51.610"/>
 </suite>
-<status status="PASS" starttime="20240315 16:32:39.915" endtime="20240315 16:32:43.227"/>
+<status status="PASS" starttime="20240315 17:41:49.686" endtime="20240315 17:41:51.615"/>
 </suite>
 <statistics>
 <total>
@@ -453,8 +75,8 @@
 <suite>
 <stat pass="1" fail="0" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Practing Robot 1.Tests</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Work-Book">Practing Robot 1.Tests.Work-Book</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Test Case">Practing Robot 1.Tests.Work-Book.Test Case</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Api-Test">Practing Robot 1.Tests.Api-Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="apiTest">Practing Robot 1.Tests.Api-Test.apiTest</stat>
 </suite>
 </statistics>
 <errors>

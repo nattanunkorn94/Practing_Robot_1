@@ -13,3 +13,4 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
 1710494420917	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1710495874320	Marionette	INFO	Stopped listening on port 65017

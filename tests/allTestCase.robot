@@ -1,18 +1,20 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    BuiltIn
-Library    String
-Resource   Collection-keyword.robot
-
-
-# Suite Setup        Open Browser    about:blank    chrome
-# Suite Teardown     Close All Browsers
-
-
+Library    HttpResponse.Library
+Library  Collections
+Library  JSONLibrary
+Library  SeleniumLibrary
+Resource    Collection-keyword.robot
 
 *** Test Cases ***
-Test1
-    Test-1 'a'
+Get Weather3Hours Should Success and return data
+    ${params}=    Create Dictionary    type=json
+    ${resp}=    Get Weather3Hours   ${params}
+    Log    ${resp.content}
+
+
+
+    # Log Json    ${resp.content}
 
 
     
