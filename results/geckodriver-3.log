@@ -1,15 +1,16 @@
-1709633030261	geckodriver	INFO	Listening on 127.0.0.1:60082
-1709633030566	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofileQMylpr"
+1710486505128	geckodriver	INFO	Listening on 127.0.0.1:64655
+1710486505145	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofileTVObid"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1709633031799	Marionette	INFO	Marionette enabled
+1710486506487	Marionette	INFO	Marionette enabled
 console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
-1709633032358	Marionette	INFO	Listening on port 60088
-WebDriver BiDi listening on ws://127.0.0.1:60083
-Read port: 60088
-1709633032732	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:60083/devtools/browser/318ae9f9-d6f7-4992-8e87-d963b5117756
+1710486506838	Marionette	INFO	Listening on port 64663
+WebDriver BiDi listening on ws://127.0.0.1:64656
+Read port: 64663
+1710486507268	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64656/devtools/browser/58442239-5b7e-4c41-88df-7d7cb70c47f8
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
 JavaScript warning: https://web-demo.qahive.com/static/js/main.ef91fa3b.js, line 1: Script terminated by timeout at:
-Wa@https://web-demo.qahive.com/static/js/main.ef91fa3b.js:1:94447
+_a@https://web-demo.qahive.com/static/js/main.ef91fa3b.js:1:94334
 
-1709633049573	Marionette	INFO	Stopped listening on port 60088
+1710486521613	Marionette	INFO	Stopped listening on port 64663

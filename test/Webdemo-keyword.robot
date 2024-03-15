@@ -1,11 +1,6 @@
 *** Settings ***
-Library           SeleniumLibrary
-Library            XML
-Resource          data-valid.robot
-Library      RPA.Excel.Files
-Library    RPA.Tables
-Library    Collections
-Library    ../.venv/lib/python3.11/site-packages/RPA/Desktop/__init__.py
+Resource          ../resources/common.resource
+
 
 
 

@@ -2,7 +2,8 @@
 Library    SeleniumLibrary
 Library    BuiltIn
 Library    String
-Resource   KeyWord.robot
+Resource   Webdemo-keyword.robot
+Resource   Collection-keyword.robot
 
 # Suite Setup        Open Browser    about:blank    chrome
 # Suite Teardown     Close All Browsers
@@ -37,7 +38,8 @@ User เข้าไปทำการเพิ่ม แล้ว make it done 
 
 
 
-
+Test1
+    Test-1 'a'
 
 
     

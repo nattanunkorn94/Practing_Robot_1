@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240311 17:40:52.028" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240315 14:59:26.251" rpa="false" schemaversion="4">
 <suite id="s1" name="workBook-test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/test/workBook-test.robot">
-<test id="s1-t1" name="Rows in the sheet" line="17">
-<kw name="Open Workbook" library="RPA.Excel.Files" type="SETUP">
+<test id="s1-t1" name="test101" line="19">
+<kw name="Count row in the Summary" sourcename="Count row in the ${sheet}">
+<kw name="Open Workbook" library="RPA.Excel.Files">
 <arg>${EXCEL_FILE}</arg>
 <doc>Open an existing Excel workbook.</doc>
-<msg timestamp="20240311 17:40:53.046" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10f713c50&gt;</msg>
-<status status="PASS" starttime="20240311 17:40:52.912" endtime="20240311 17:40:53.047"/>
+<msg timestamp="20240315 14:59:27.850" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10b34a090&gt;</msg>
+<status status="PASS" starttime="20240315 14:59:27.644" endtime="20240315 14:59:27.853"/>
+</kw>
+<kw name="Get row count in the sheet">
+<var>${count}</var>
+<arg>${sheet}</arg>
+<kw name="Read Worksheet" library="RPA.Excel.Files">
+<var>${sheet}</var>
+<arg>${SHEET_NAME}</arg>
+<doc>Read the content of a worksheet into a list of dictionaries.</doc>
+<msg timestamp="20240315 14:59:27.860" level="INFO">${sheet} = [{'A': 'ODDS Access Card', 'B': None, 'C': None, 'D': None, 'E': 'ข่าวสาร'}, {'A': 'บ้าน', 'B': 'Access Cards', 'C': 'Cars', 'D': None, 'E': 'โปรดติดตามข้อมูลเกี่ยวกับ\nที่จอดรถยนต์ภายหลัง'}, {'A': 'โ...</msg>
+<status status="PASS" starttime="20240315 14:59:27.858" endtime="20240315 14:59:27.860"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${rows}</var>
+<arg>${sheet}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20240315 14:59:27.861" level="INFO">Length is 17</msg>
+<msg timestamp="20240315 14:59:27.861" level="INFO">${rows} = 17</msg>
+<status status="PASS" starttime="20240315 14:59:27.861" endtime="20240315 14:59:27.861"/>
+</kw>
+<msg timestamp="20240315 14:59:27.861" level="INFO">${count} = 17</msg>
+<status status="PASS" starttime="20240315 14:59:27.857" endtime="20240315 14:59:27.861"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240315 14:59:27.862" level="INFO">หน้า Summary มี 16 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:27.862" endtime="20240315 14:59:27.862"/>
+</kw>
+<status status="PASS" starttime="20240315 14:59:27.643" endtime="20240315 14:59:27.863"/>
+</kw>
+<kw name="นับจำนวนคนจาก sheet ทั้งหมด">
+<kw name="Open Workbook" library="RPA.Excel.Files">
+<arg>${EXCEL_FILE}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<msg timestamp="20240315 14:59:27.891" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10b34a090&gt;</msg>
+<msg timestamp="20240315 14:59:28.111" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x10b34a090&gt;</msg>
+<status status="PASS" starttime="20240315 14:59:27.891" endtime="20240315 14:59:28.112"/>
 </kw>
 <kw name="List Worksheets" library="RPA.Excel.Files">
 <var>@{sheets}</var>
 <doc>List all names of worksheets in the given workbook.</doc>
-<msg timestamp="20240311 17:40:53.052" level="INFO">@{sheets} = [ Summary | โจรสลัด | Database | LeSSEx | SakSiam | SET-LiVE | FlatWhite | XSpring | TISCO | MedPark | Jago | Template ]</msg>
-<status status="PASS" starttime="20240311 17:40:53.052" endtime="20240311 17:40:53.053"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${sheets}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.065" level="INFO">['Summary', 'โจรสลัด', 'Database', 'LeSSEx', 'SakSiam', 'SET-LiVE', 'FlatWhite', 'XSpring', 'TISCO', 'MedPark', 'Jago', 'Template']</msg>
-<status status="PASS" starttime="20240311 17:40:53.065" endtime="20240311 17:40:53.066"/>
+<msg timestamp="20240315 14:59:28.112" level="INFO">@{sheets} = [ Summary | โจรสลัด | Database | LeSSEx | SakSiam | SET-LiVE | FlatWhite | XSpring | TISCO | MedPark | Jago | Template ]</msg>
+<status status="PASS" starttime="20240315 14:59:28.112" endtime="20240315 14:59:28.112"/>
 </kw>
 <for flavor="IN">
 <var>${sheet}</var>
@@ -32,27 +64,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.078" level="INFO">${sheet} = [{'A': 'ODDS Access Card', 'B': None, 'C': None, 'D': None, 'E': 'ข่าวสาร'}, {'A': 'บ้าน', 'B': 'Access Cards', 'C': 'Cars', 'D': None, 'E': 'โปรดติดตามข้อมูลเกี่ยวกับ\nที่จอดรถยนต์ภายหลัง'}, {'A': 'โ...</msg>
-<status status="PASS" starttime="20240311 17:40:53.072" endtime="20240311 17:40:53.078"/>
+<msg timestamp="20240315 14:59:28.114" level="INFO">${sheet} = [{'A': 'ODDS Access Card', 'B': None, 'C': None, 'D': None, 'E': 'ข่าวสาร'}, {'A': 'บ้าน', 'B': 'Access Cards', 'C': 'Cars', 'D': None, 'E': 'โปรดติดตามข้อมูลเกี่ยวกับ\nที่จอดรถยนต์ภายหลัง'}, {'A': 'โ...</msg>
+<status status="PASS" starttime="20240315 14:59:28.113" endtime="20240315 14:59:28.114"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.079" level="INFO">Length is 17</msg>
-<msg timestamp="20240311 17:40:53.079" level="INFO">${rows} = 17</msg>
-<status status="PASS" starttime="20240311 17:40:53.078" endtime="20240311 17:40:53.080"/>
+<msg timestamp="20240315 14:59:28.115" level="INFO">Length is 17</msg>
+<msg timestamp="20240315 14:59:28.115" level="INFO">${rows} = 17</msg>
+<status status="PASS" starttime="20240315 14:59:28.115" endtime="20240315 14:59:28.115"/>
 </kw>
-<msg timestamp="20240311 17:40:53.080" level="INFO">${count} = 17</msg>
-<status status="PASS" starttime="20240311 17:40:53.071" endtime="20240311 17:40:53.080"/>
+<msg timestamp="20240315 14:59:28.115" level="INFO">${count} = 17</msg>
+<status status="PASS" starttime="20240315 14:59:28.113" endtime="20240315 14:59:28.115"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.081" level="INFO">CAKE say Worksheet Summary has 17 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.080" endtime="20240311 17:40:53.085"/>
+<msg timestamp="20240315 14:59:28.116" level="INFO">หน้า Summary มี 16 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.116" endtime="20240315 14:59:28.116"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.070" endtime="20240311 17:40:53.085"/>
+<status status="PASS" starttime="20240315 14:59:28.113" endtime="20240315 14:59:28.116"/>
 </iter>
 <iter>
 <var name="${sheet}">โจรสลัด</var>
@@ -63,27 +95,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.111" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.090" endtime="20240311 17:40:53.111"/>
+<msg timestamp="20240315 14:59:28.119" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.117" endtime="20240315 14:59:28.119"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.115" level="INFO">Length is 40</msg>
-<msg timestamp="20240311 17:40:53.123" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.112" endtime="20240311 17:40:53.124"/>
+<msg timestamp="20240315 14:59:28.120" level="INFO">Length is 40</msg>
+<msg timestamp="20240315 14:59:28.120" level="INFO">${rows} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.120" endtime="20240315 14:59:28.120"/>
 </kw>
-<msg timestamp="20240311 17:40:53.126" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.089" endtime="20240311 17:40:53.135"/>
+<msg timestamp="20240315 14:59:28.121" level="INFO">${count} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.117" endtime="20240315 14:59:28.121"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.137" level="INFO">CAKE say Worksheet โจรสลัด has 40 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.136" endtime="20240311 17:40:53.137"/>
+<msg timestamp="20240315 14:59:28.122" level="INFO">หน้า โจรสลัด มี 39 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.121" endtime="20240315 14:59:28.123"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.089" endtime="20240311 17:40:53.137"/>
+<status status="PASS" starttime="20240315 14:59:28.117" endtime="20240315 14:59:28.123"/>
 </iter>
 <iter>
 <var name="${sheet}">Database</var>
@@ -94,27 +126,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.155" level="INFO">${sheet} = [{'A': 'Provice', 'B': None}, {'A': 'กรุงเทพมหานคร', 'B': None}, {'A': 'กระบี่', 'B': None}, {'A': 'กาญจนบุรี', 'B': None}, {'A': 'กาฬสินธุ์', 'B': None}, {'A': 'กำแพงเพชร', 'B': None}, {'A': 'ขอนแก่น...</msg>
-<status status="PASS" starttime="20240311 17:40:53.153" endtime="20240311 17:40:53.156"/>
+<msg timestamp="20240315 14:59:28.125" level="INFO">${sheet} = [{'A': 'Provice', 'B': None}, {'A': 'กรุงเทพมหานคร', 'B': None}, {'A': 'กระบี่', 'B': None}, {'A': 'กาญจนบุรี', 'B': None}, {'A': 'กาฬสินธุ์', 'B': None}, {'A': 'กำแพงเพชร', 'B': None}, {'A': 'ขอนแก่น...</msg>
+<status status="PASS" starttime="20240315 14:59:28.124" endtime="20240315 14:59:28.126"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.157" level="INFO">Length is 78</msg>
-<msg timestamp="20240311 17:40:53.157" level="INFO">${rows} = 78</msg>
-<status status="PASS" starttime="20240311 17:40:53.156" endtime="20240311 17:40:53.163"/>
+<msg timestamp="20240315 14:59:28.126" level="INFO">Length is 78</msg>
+<msg timestamp="20240315 14:59:28.126" level="INFO">${rows} = 78</msg>
+<status status="PASS" starttime="20240315 14:59:28.126" endtime="20240315 14:59:28.126"/>
 </kw>
-<msg timestamp="20240311 17:40:53.164" level="INFO">${count} = 78</msg>
-<status status="PASS" starttime="20240311 17:40:53.146" endtime="20240311 17:40:53.165"/>
+<msg timestamp="20240315 14:59:28.127" level="INFO">${count} = 78</msg>
+<status status="PASS" starttime="20240315 14:59:28.124" endtime="20240315 14:59:28.127"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.168" level="INFO">CAKE say Worksheet Database has 78 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.165" endtime="20240311 17:40:53.169"/>
+<msg timestamp="20240315 14:59:28.128" level="INFO">หน้า Database มี 77 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.127" endtime="20240315 14:59:28.128"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.144" endtime="20240311 17:40:53.169"/>
+<status status="PASS" starttime="20240315 14:59:28.123" endtime="20240315 14:59:28.128"/>
 </iter>
 <iter>
 <var name="${sheet}">LeSSEx</var>
@@ -125,27 +157,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.180" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.173" endtime="20240311 17:40:53.180"/>
+<msg timestamp="20240315 14:59:28.130" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.128" endtime="20240315 14:59:28.130"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.184" level="INFO">Length is 25</msg>
-<msg timestamp="20240311 17:40:53.185" level="INFO">${rows} = 25</msg>
-<status status="PASS" starttime="20240311 17:40:53.181" endtime="20240311 17:40:53.185"/>
+<msg timestamp="20240315 14:59:28.130" level="INFO">Length is 25</msg>
+<msg timestamp="20240315 14:59:28.130" level="INFO">${rows} = 25</msg>
+<status status="PASS" starttime="20240315 14:59:28.130" endtime="20240315 14:59:28.131"/>
 </kw>
-<msg timestamp="20240311 17:40:53.185" level="INFO">${count} = 25</msg>
-<status status="PASS" starttime="20240311 17:40:53.171" endtime="20240311 17:40:53.186"/>
+<msg timestamp="20240315 14:59:28.131" level="INFO">${count} = 25</msg>
+<status status="PASS" starttime="20240315 14:59:28.128" endtime="20240315 14:59:28.131"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.217" level="INFO">CAKE say Worksheet LeSSEx has 25 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.186" endtime="20240311 17:40:53.218"/>
+<msg timestamp="20240315 14:59:28.132" level="INFO">หน้า LeSSEx มี 24 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.131" endtime="20240315 14:59:28.132"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.170" endtime="20240311 17:40:53.218"/>
+<status status="PASS" starttime="20240315 14:59:28.128" endtime="20240315 14:59:28.132"/>
 </iter>
 <iter>
 <var name="${sheet}">SakSiam</var>
@@ -156,27 +188,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.226" level="INFO">${sheet} = [{'A': '?', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None, 'N': N...</msg>
-<status status="PASS" starttime="20240311 17:40:53.220" endtime="20240311 17:40:53.226"/>
+<msg timestamp="20240315 14:59:28.134" level="INFO">${sheet} = [{'A': '?', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None, 'N': N...</msg>
+<status status="PASS" starttime="20240315 14:59:28.133" endtime="20240315 14:59:28.135"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.227" level="INFO">Length is 40</msg>
-<msg timestamp="20240311 17:40:53.227" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.226" endtime="20240311 17:40:53.227"/>
+<msg timestamp="20240315 14:59:28.135" level="INFO">Length is 40</msg>
+<msg timestamp="20240315 14:59:28.135" level="INFO">${rows} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.135" endtime="20240315 14:59:28.135"/>
 </kw>
-<msg timestamp="20240311 17:40:53.227" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.220" endtime="20240311 17:40:53.227"/>
+<msg timestamp="20240315 14:59:28.135" level="INFO">${count} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.132" endtime="20240315 14:59:28.136"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.228" level="INFO">CAKE say Worksheet SakSiam has 40 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.228" endtime="20240311 17:40:53.228"/>
+<msg timestamp="20240315 14:59:28.136" level="INFO">หน้า SakSiam มี 39 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.136" endtime="20240315 14:59:28.136"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.218" endtime="20240311 17:40:53.228"/>
+<status status="PASS" starttime="20240315 14:59:28.132" endtime="20240315 14:59:28.136"/>
 </iter>
 <iter>
 <var name="${sheet}">SET-LiVE</var>
@@ -187,27 +219,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.232" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.230" endtime="20240311 17:40:53.232"/>
+<msg timestamp="20240315 14:59:28.140" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.137" endtime="20240315 14:59:28.140"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.236" level="INFO">Length is 41</msg>
-<msg timestamp="20240311 17:40:53.236" level="INFO">${rows} = 41</msg>
-<status status="PASS" starttime="20240311 17:40:53.232" endtime="20240311 17:40:53.236"/>
+<msg timestamp="20240315 14:59:28.141" level="INFO">Length is 41</msg>
+<msg timestamp="20240315 14:59:28.141" level="INFO">${rows} = 41</msg>
+<status status="PASS" starttime="20240315 14:59:28.141" endtime="20240315 14:59:28.141"/>
 </kw>
-<msg timestamp="20240311 17:40:53.237" level="INFO">${count} = 41</msg>
-<status status="PASS" starttime="20240311 17:40:53.229" endtime="20240311 17:40:53.237"/>
+<msg timestamp="20240315 14:59:28.141" level="INFO">${count} = 41</msg>
+<status status="PASS" starttime="20240315 14:59:28.137" endtime="20240315 14:59:28.141"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.238" level="INFO">CAKE say Worksheet SET-LiVE has 41 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.237" endtime="20240311 17:40:53.238"/>
+<msg timestamp="20240315 14:59:28.142" level="INFO">หน้า SET-LiVE มี 40 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.142" endtime="20240315 14:59:28.142"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.229" endtime="20240311 17:40:53.238"/>
+<status status="PASS" starttime="20240315 14:59:28.137" endtime="20240315 14:59:28.142"/>
 </iter>
 <iter>
 <var name="${sheet}">FlatWhite</var>
@@ -218,27 +250,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.247" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.241" endtime="20240311 17:40:53.251"/>
+<msg timestamp="20240315 14:59:28.145" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.143" endtime="20240315 14:59:28.146"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.252" level="INFO">Length is 40</msg>
-<msg timestamp="20240311 17:40:53.252" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.251" endtime="20240311 17:40:53.252"/>
+<msg timestamp="20240315 14:59:28.147" level="INFO">Length is 40</msg>
+<msg timestamp="20240315 14:59:28.147" level="INFO">${rows} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.147" endtime="20240315 14:59:28.148"/>
 </kw>
-<msg timestamp="20240311 17:40:53.253" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.240" endtime="20240311 17:40:53.254"/>
+<msg timestamp="20240315 14:59:28.148" level="INFO">${count} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.143" endtime="20240315 14:59:28.148"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.254" level="INFO">CAKE say Worksheet FlatWhite has 40 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.254" endtime="20240311 17:40:53.255"/>
+<msg timestamp="20240315 14:59:28.149" level="INFO">หน้า FlatWhite มี 39 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.148" endtime="20240315 14:59:28.149"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.238" endtime="20240311 17:40:53.255"/>
+<status status="PASS" starttime="20240315 14:59:28.142" endtime="20240315 14:59:28.149"/>
 </iter>
 <iter>
 <var name="${sheet}">XSpring</var>
@@ -249,27 +281,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.270" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.258" endtime="20240311 17:40:53.270"/>
+<msg timestamp="20240315 14:59:28.152" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.151" endtime="20240315 14:59:28.152"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.273" level="INFO">Length is 40</msg>
-<msg timestamp="20240311 17:40:53.274" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.271" endtime="20240311 17:40:53.274"/>
+<msg timestamp="20240315 14:59:28.153" level="INFO">Length is 40</msg>
+<msg timestamp="20240315 14:59:28.153" level="INFO">${rows} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.152" endtime="20240315 14:59:28.153"/>
 </kw>
-<msg timestamp="20240311 17:40:53.274" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.256" endtime="20240311 17:40:53.274"/>
+<msg timestamp="20240315 14:59:28.153" level="INFO">${count} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.150" endtime="20240315 14:59:28.153"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.275" level="INFO">CAKE say Worksheet XSpring has 40 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.275" endtime="20240311 17:40:53.275"/>
+<msg timestamp="20240315 14:59:28.155" level="INFO">หน้า XSpring มี 39 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.153" endtime="20240315 14:59:28.156"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.256" endtime="20240311 17:40:53.275"/>
+<status status="PASS" starttime="20240315 14:59:28.150" endtime="20240315 14:59:28.156"/>
 </iter>
 <iter>
 <var name="${sheet}">TISCO</var>
@@ -280,27 +312,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.284" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.279" endtime="20240311 17:40:53.285"/>
+<msg timestamp="20240315 14:59:28.159" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.157" endtime="20240315 14:59:28.159"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.286" level="INFO">Length is 40</msg>
-<msg timestamp="20240311 17:40:53.288" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.285" endtime="20240311 17:40:53.288"/>
+<msg timestamp="20240315 14:59:28.160" level="INFO">Length is 40</msg>
+<msg timestamp="20240315 14:59:28.160" level="INFO">${rows} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.160" endtime="20240315 14:59:28.160"/>
 </kw>
-<msg timestamp="20240311 17:40:53.288" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.277" endtime="20240311 17:40:53.288"/>
+<msg timestamp="20240315 14:59:28.160" level="INFO">${count} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.157" endtime="20240315 14:59:28.160"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.292" level="INFO">CAKE say Worksheet TISCO has 40 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.291" endtime="20240311 17:40:53.292"/>
+<msg timestamp="20240315 14:59:28.161" level="INFO">หน้า TISCO มี 39 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.160" endtime="20240315 14:59:28.161"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.276" endtime="20240311 17:40:53.292"/>
+<status status="PASS" starttime="20240315 14:59:28.156" endtime="20240315 14:59:28.161"/>
 </iter>
 <iter>
 <var name="${sheet}">MedPark</var>
@@ -311,27 +343,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.305" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.300" endtime="20240311 17:40:53.306"/>
+<msg timestamp="20240315 14:59:28.165" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.163" endtime="20240315 14:59:28.165"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.307" level="INFO">Length is 40</msg>
-<msg timestamp="20240311 17:40:53.307" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.306" endtime="20240311 17:40:53.307"/>
+<msg timestamp="20240315 14:59:28.165" level="INFO">Length is 40</msg>
+<msg timestamp="20240315 14:59:28.165" level="INFO">${rows} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.165" endtime="20240315 14:59:28.165"/>
 </kw>
-<msg timestamp="20240311 17:40:53.308" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.293" endtime="20240311 17:40:53.308"/>
+<msg timestamp="20240315 14:59:28.166" level="INFO">${count} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.163" endtime="20240315 14:59:28.166"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.310" level="INFO">CAKE say Worksheet MedPark has 40 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.308" endtime="20240311 17:40:53.310"/>
+<msg timestamp="20240315 14:59:28.167" level="INFO">หน้า MedPark มี 39 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.166" endtime="20240315 14:59:28.167"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.293" endtime="20240311 17:40:53.310"/>
+<status status="PASS" starttime="20240315 14:59:28.162" endtime="20240315 14:59:28.167"/>
 </iter>
 <iter>
 <var name="${sheet}">Jago</var>
@@ -342,27 +374,27 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.318" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.313" endtime="20240311 17:40:53.318"/>
+<msg timestamp="20240315 14:59:28.169" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.168" endtime="20240315 14:59:28.169"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.320" level="INFO">Length is 41</msg>
-<msg timestamp="20240311 17:40:53.321" level="INFO">${rows} = 41</msg>
-<status status="PASS" starttime="20240311 17:40:53.318" endtime="20240311 17:40:53.321"/>
+<msg timestamp="20240315 14:59:28.170" level="INFO">Length is 41</msg>
+<msg timestamp="20240315 14:59:28.170" level="INFO">${rows} = 41</msg>
+<status status="PASS" starttime="20240315 14:59:28.170" endtime="20240315 14:59:28.170"/>
 </kw>
-<msg timestamp="20240311 17:40:53.322" level="INFO">${count} = 41</msg>
-<status status="PASS" starttime="20240311 17:40:53.311" endtime="20240311 17:40:53.322"/>
+<msg timestamp="20240315 14:59:28.171" level="INFO">${count} = 41</msg>
+<status status="PASS" starttime="20240315 14:59:28.167" endtime="20240315 14:59:28.171"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.323" level="INFO">CAKE say Worksheet Jago has 41 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.323" endtime="20240311 17:40:53.324"/>
+<msg timestamp="20240315 14:59:28.172" level="INFO">หน้า Jago มี 40 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.171" endtime="20240315 14:59:28.172"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.311" endtime="20240311 17:40:53.324"/>
+<status status="PASS" starttime="20240315 14:59:28.167" endtime="20240315 14:59:28.173"/>
 </iter>
 <iter>
 <var name="${sheet}">Template</var>
@@ -373,33 +405,35 @@
 <var>${sheet}</var>
 <arg>${SHEET_NAME}</arg>
 <doc>Read the content of a worksheet into a list of dictionaries.</doc>
-<msg timestamp="20240311 17:40:53.337" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
-<status status="PASS" starttime="20240311 17:40:53.327" endtime="20240311 17:40:53.338"/>
+<msg timestamp="20240315 14:59:28.176" level="INFO">${sheet} = [{'A': 'Nickname', 'B': 'Name', 'C': 'Lastname', 'D': 'ชื่อเล่น', 'E': 'ชื่อ', 'F': 'นามสกุล', 'G': 'Email', 'H': 'Phone Number', 'I': 'รถยนต์ (1)', 'J': None, 'K': None, 'L': 'รถยนต์ (2)', 'M': None,...</msg>
+<status status="PASS" starttime="20240315 14:59:28.173" endtime="20240315 14:59:28.176"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${rows}</var>
 <arg>${sheet}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20240311 17:40:53.339" level="INFO">Length is 40</msg>
-<msg timestamp="20240311 17:40:53.339" level="INFO">${rows} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.338" endtime="20240311 17:40:53.339"/>
+<msg timestamp="20240315 14:59:28.176" level="INFO">Length is 40</msg>
+<msg timestamp="20240315 14:59:28.176" level="INFO">${rows} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.176" endtime="20240315 14:59:28.176"/>
 </kw>
-<msg timestamp="20240311 17:40:53.340" level="INFO">${count} = 40</msg>
-<status status="PASS" starttime="20240311 17:40:53.325" endtime="20240311 17:40:53.340"/>
+<msg timestamp="20240315 14:59:28.177" level="INFO">${count} = 40</msg>
+<status status="PASS" starttime="20240315 14:59:28.173" endtime="20240315 14:59:28.177"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>CAKE say Worksheet ${sheet} has ${count} rows</arg>
+<arg>หน้า ${sheet} มี ${count-1} แถว</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240311 17:40:53.342" level="INFO">CAKE say Worksheet Template has 40 rows</msg>
-<status status="PASS" starttime="20240311 17:40:53.341" endtime="20240311 17:40:53.342"/>
+<msg timestamp="20240315 14:59:28.178" level="INFO">หน้า Template มี 39 แถว</msg>
+<status status="PASS" starttime="20240315 14:59:28.177" endtime="20240315 14:59:28.178"/>
 </kw>
-<status status="PASS" starttime="20240311 17:40:53.325" endtime="20240311 17:40:53.342"/>
+<status status="PASS" starttime="20240315 14:59:28.173" endtime="20240315 14:59:28.178"/>
 </iter>
-<status status="PASS" starttime="20240311 17:40:53.069" endtime="20240311 17:40:53.343"/>
+<status status="PASS" starttime="20240315 14:59:28.113" endtime="20240315 14:59:28.178"/>
 </for>
-<status status="PASS" starttime="20240311 17:40:52.912" endtime="20240311 17:40:53.345"/>
+<status status="PASS" starttime="20240315 14:59:27.891" endtime="20240315 14:59:28.179"/>
+</kw>
+<status status="PASS" starttime="20240315 14:59:27.635" endtime="20240315 14:59:28.196"/>
 </test>
-<status status="PASS" starttime="20240311 17:40:52.040" endtime="20240311 17:40:53.347"/>
+<status status="PASS" starttime="20240315 14:59:26.384" endtime="20240315 14:59:28.361"/>
 </suite>
 <statistics>
 <total>

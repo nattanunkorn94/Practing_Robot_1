@@ -14,18 +14,11 @@ ${EXCEL_FILE}   ${CURDIR}/../testbook2.xlsx
 
 
 *** Test Cases ***
-Rows in the sheet
-    [Setup]      Open Workbook    ${EXCEL_FILE}
-    @{sheets}=   List Worksheets
-    Log  ${sheets}
-    FOR  ${sheet}  IN   @{sheets}
-    # loop ใน 1 sheet
-        ${count}=  Get row count in the sheet   ${sheet}  
-        #นับ row
-        Log   CAKE say Worksheet ${sheet} has ${count} rows
-    END
-   
 
+
+test101
+    นับจำนวนคนในชีท Summary
+    นับจำนวนคนจาก sheet ทั้งหมด
 
 
 
@@ -36,3 +29,17 @@ Get row count in the sheet
     ${rows}=         Get Length  ${sheet}
     [Return]         ${rows}
     
+นับจำนวนคนจาก sheet ทั้งหมด
+    Open Workbook    ${EXCEL_FILE}
+    @{sheets}=   List Worksheets
+    FOR  ${sheet}  IN   @{sheets}
+    # loop ใน 1 sheet
+        ${count}=  Get row count in the sheet   ${sheet}  
+        #นับ row
+        Log   หน้า ${sheet} มี ${count-1} แถว
+    END
+นับจำนวนคนในชีท ${sheet} 
+    Open Workbook    ${EXCEL_FILE}
+    ${count}=  Get row count in the sheet     ${sheet} 
+        #นับ row
+    Log   หน้า ${sheet} มี ${count-1} แถว
