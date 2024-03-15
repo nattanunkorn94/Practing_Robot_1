@@ -1,10 +1,6 @@
 *** Settings ***
 Resource    ../resources/common.resource
 
-
-
-
-
 *** Keywords ***
 Test-1 ${message-1}
     Open Browser    ${url_todo}

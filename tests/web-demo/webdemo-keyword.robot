@@ -1,17 +1,18 @@
 *** Settings ***
-Resource          ../resources/common.resource
-
-
-
-
-
+# Resource        ../resources/common.resource
+Library     SeleniumLibrary
+Library     RPA.Excel.Files
+Library     RPA.Tables
+Library     Collections
 *** Keywords ***
 # Verify facebook page
 #     [Arguments]               ${title}
 #     Title Should Be            ${title}
 
+
+##### Web DEMO #####
 Open ToDoList Page
-    Open Browser    ${url_todo}
+    Open Browser    https://web-demo.qahive.com/todo-list
     Wait Until Element Is Visible   //h1[text()='Todo List']
     Wait Until Element Is Visible  //b[text()='Add Todo']
     
@@ -64,7 +65,7 @@ Open ToDoList Page
 
 
 กรอกข้อมูล user '${username}' '${firstname}' '${lastname}'
-    Open Browser    ${url_form} 
+    Open Browser     https://web-demo.qahive.com/form-demo
     Maximize Browser Window
     Input Text     //label[text()='username*']/following::input    ${username}
     Input Text    //label[text()='firstname*']/following::input    ${firstname} 
@@ -92,6 +93,10 @@ Open ToDoList Page
     Click Button    //button[text()='Export']
     # Click Element    //li[text()='Download as CSV']
 
+
+
+
+##### Exel , WorkBook #####
 open Exel Sheet ${workbook}
     Open Workbook     ${CURDIR}/../${workbook}
     Set Active Worksheet    Summary

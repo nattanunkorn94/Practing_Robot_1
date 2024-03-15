@@ -1,0 +1,26 @@
+1710492534241	geckodriver	INFO	Listening on 127.0.0.1:60147
+1710492534257	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/sc/9wr0chb12414wsh_816gdm1w0000gq/T/rust_mozprofiles6EEJF"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1710492535638	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1710492536366	Marionette	INFO	Listening on port 60153
+WebDriver BiDi listening on ws://127.0.0.1:60148
+Read port: 60153
+1710492536671	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:60148/devtools/browser/bb3baad7-758a-44b7-9e0c-8334c18b40cb
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://web-demo.qahive.com."
+JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 3770: TypeError: this._windows[aWindow.__SSi] is undefined
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c, line 182: Script terminated by timeout at:
+r@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:182:2779
+nB@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:496:149
+lB/</<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:494:189
+Na@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:161:62
+lB/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:494:168
+Na@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:161:62
+lB@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:494:135
+mB/<@https://www.googletagmanager.com/gtag/js?id=G-W0D7NK8NJJ&l=dataLayer&cx=c:494:111
+
+1710492553759	Marionette	INFO	Stopped listening on port 60153
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."

@@ -3,7 +3,9 @@ Library    SeleniumLibrary
 Library    BuiltIn
 Library    String
 Resource   Webdemo-keyword.robot
-Resource   Collection-keyword.robot
+
+# Resource   Collection-keyword.robot
+# Resource    workBook-keyword.robot
 
 # Suite Setup        Open Browser    about:blank    chrome
 # Suite Teardown     Close All Browsers
@@ -34,12 +36,3 @@ User เข้าไปทำการเพิ่ม แล้ว make it done 
 เปิดหน้า generate
     # เปิดหน้า generate
     open Exel Sheet testbook2.xlsx
-    
-
-
-
-Test1
-    Test-1 'a'
-
-
-    

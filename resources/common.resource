@@ -13,7 +13,9 @@ Library     String
 Library     BuiltIn
 
 
+
 *** Variables ***
+${EXCEL_FILE}       ${CURDIR}/../testbook2.xlsx
 # todo page
 ${url_todo}         https://web-demo.qahive.com/todo-list
 ${title_H1}         Todo List

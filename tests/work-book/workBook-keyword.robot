@@ -1,25 +1,11 @@
 *** Settings ***
-Library               RequestsLibrary
-Library               RPA.JSON  
-Library            JSONLibrary
-Library            Collections
-Library            String
-Library             BuiltIn 
-Library    RPA.Tables
-Library    RPA.Excel.Files
-
-
-*** Variables ***
-${EXCEL_FILE}   ${CURDIR}/../testbook2.xlsx
-
-
-*** Test Cases ***
-
-
-test101
-    นับจำนวนคนในชีท Summary
-    นับจำนวนคนจาก sheet ทั้งหมด
-
+Library    SeleniumLibrary
+Library    BuiltIn
+Library    String
+Library     RPA.Excel.Files
+Library     RPA.Tables
+Library     Collections
+# Resource          ../resources/common.resource
 
 
 *** Keywords ***
@@ -30,7 +16,7 @@ Get row count in the sheet
     [Return]         ${rows}
     
 นับจำนวนคนจาก sheet ทั้งหมด
-    Open Workbook    ${EXCEL_FILE}
+    Open Workbook    ${CURDIR}/../testbook2.xlsx
     @{sheets}=   List Worksheets
     FOR  ${sheet}  IN   @{sheets}
     # loop ใน 1 sheet
@@ -38,8 +24,9 @@ Get row count in the sheet
         #นับ row
         Log   หน้า ${sheet} มี ${count-1} แถว
     END
+
 นับจำนวนคนในชีท ${sheet} 
-    Open Workbook    ${EXCEL_FILE}
+    Open Workbook    ${CURDIR}/../testbook2.xlsx
     ${count}=  Get row count in the sheet     ${sheet} 
         #นับ row
     Log   หน้า ${sheet} มี ${count-1} แถว
