@@ -9,8 +9,8 @@ Library     BuiltIn
 *** Keywords ***
 Get API methods
     [Arguments]    ${params}
-    Create Session    tmd    https://reqres.in/api
-    ${resp}=    GET On Session    tmd    /login    params=${params}
+    Create Session    tmd    https://httpbin.org
+    ${resp}=    GET On Session    tmd    /get   params=${params}
 #    /Weather3Hours/V1
     RETURN    ${resp}
 

@@ -31,3 +31,9 @@ Get Weather3Hours JSON no params
     Create Session    tmd     http://data.tmd.go.th/api
     ${resp}=     GET On Session    tmd    /Weather3Hours/V1?type=json
     Return From Keyword    ${resp}
+
+
+
+
+
+    

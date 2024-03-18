@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.11.8 on darwin)" generated="20240318 14:16:38.555" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Case" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/web-demo/test_case.robot">
+<test id="s1-t1" name="User เข้าไปทำการเพิ่ม แล้ว make it done แล้ว delete" line="16">
+<kw name="Open ToDoList Page" library="Webdemo-keyword">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://web-demo.qahive.com/todo-list</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240318 14:16:38.910" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/todo-list'.</msg>
+<msg timestamp="20240318 14:16:38.911" level="INFO">Firefox driver log is always forced to to: /Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/web-demo/geckodriver-1.log</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240318 14:16:38.927" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20240318 14:16:38.926" endtime="20240318 14:16:38.927"/>
+</kw>
+<msg timestamp="20240318 14:16:38.928" level="FAIL">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
+</msg>
+<status status="FAIL" starttime="20240318 14:16:38.909" endtime="20240318 14:16:38.943"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//h1[text()='Todo List']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240318 14:16:38.944" endtime="20240318 14:16:38.944"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//b[text()='Add Todo']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240318 14:16:38.944" endtime="20240318 14:16:38.944"/>
+</kw>
+<status status="FAIL" starttime="20240318 14:16:38.909" endtime="20240318 14:16:38.944"/>
+</kw>
+<kw name="เพิ่ม Todo List 'อันที่2'" library="Webdemo-keyword" sourcename="เพิ่ม Todo List '${message-1}'">
+<status status="NOT RUN" starttime="20240318 14:16:38.945" endtime="20240318 14:16:38.945"/>
+</kw>
+<kw name="เพิ่ม Todo List 'อันที่3'" library="Webdemo-keyword" sourcename="เพิ่ม Todo List '${message-1}'">
+<status status="NOT RUN" starttime="20240318 14:16:38.945" endtime="20240318 14:16:38.945"/>
+</kw>
+<kw name="เพิ่ม Todo List 'อันที่4'" library="Webdemo-keyword" sourcename="เพิ่ม Todo List '${message-1}'">
+<status status="NOT RUN" starttime="20240318 14:16:38.946" endtime="20240318 14:16:38.946"/>
+</kw>
+<kw name="ทำ todo list เสร็จทั้งหมด" library="Webdemo-keyword">
+<status status="NOT RUN" starttime="20240318 14:16:38.946" endtime="20240318 14:16:38.946"/>
+</kw>
+<kw name="ลบ todo list ได้ทั้งหมด" library="Webdemo-keyword">
+<status status="NOT RUN" starttime="20240318 14:16:38.946" endtime="20240318 14:16:38.946"/>
+</kw>
+<status status="FAIL" starttime="20240318 14:16:38.908" endtime="20240318 14:16:38.950">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
+</status>
+</test>
+<test id="s1-t2" name="สมัคร Form สำเร็จ" line="29">
+<kw name="กรอกข้อมูล user 'username' 'firstname' 'lastname'" library="Webdemo-keyword" sourcename="กรอกข้อมูล user '${username}' '${firstname}' '${lastname}'">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://web-demo.qahive.com/form-demo</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240318 14:16:38.956" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/form-demo'.</msg>
+<msg timestamp="20240318 14:16:38.956" level="INFO">Firefox driver log is always forced to to: /Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/web-demo/geckodriver-2.log</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240318 14:16:39.009" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20240318 14:16:39.008" endtime="20240318 14:16:39.009"/>
+</kw>
+<msg timestamp="20240318 14:16:39.010" level="FAIL">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
+</msg>
+<status status="FAIL" starttime="20240318 14:16:38.954" endtime="20240318 14:16:39.014"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20240318 14:16:39.014" endtime="20240318 14:16:39.015"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//label[text()='username*']/following::input</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240318 14:16:39.015" endtime="20240318 14:16:39.015"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//label[text()='firstname*']/following::input</arg>
+<arg>${firstname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240318 14:16:39.015" endtime="20240318 14:16:39.015"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//label[text()='lastname*']/following-sibling::input</arg>
+<arg>${lastname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240318 14:16:39.015" endtime="20240318 14:16:39.015"/>
+</kw>
+<status status="FAIL" starttime="20240318 14:16:38.953" endtime="20240318 14:16:39.016"/>
+</kw>
+<kw name="เลือกเพศ 'Female'" library="Webdemo-keyword" sourcename="เลือกเพศ '${gender}'">
+<status status="NOT RUN" starttime="20240318 14:16:39.019" endtime="20240318 14:16:39.020"/>
+</kw>
+<kw name="เลือกประเทศ 'Thailand'" library="Webdemo-keyword" sourcename="เลือกประเทศ '${country}'">
+<status status="NOT RUN" starttime="20240318 14:16:39.020" endtime="20240318 14:16:39.020"/>
+</kw>
+<kw name="เลือกเงื่อนไขและsubmit" library="Webdemo-keyword">
+<status status="NOT RUN" starttime="20240318 14:16:39.020" endtime="20240318 14:16:39.021"/>
+</kw>
+<status status="FAIL" starttime="20240318 14:16:38.951" endtime="20240318 14:16:39.021">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
+</status>
+</test>
+<test id="s1-t3" name="เปิดหน้า generate" line="36">
+<kw name="open Exel Sheet testbook2.xlsx" library="Webdemo-keyword" sourcename="open Exel Sheet ${workbook}">
+<kw name="Open Workbook">
+<arg>${workbook}</arg>
+<msg timestamp="20240318 14:16:39.032" level="FAIL">No keyword with name 'Open Workbook' found.</msg>
+<status status="FAIL" starttime="20240318 14:16:39.031" endtime="20240318 14:16:39.032"/>
+</kw>
+<kw name="Set Active Worksheet">
+<arg>Summary</arg>
+<status status="NOT RUN" starttime="20240318 14:16:39.038" endtime="20240318 14:16:39.038"/>
+</kw>
+<kw name="Read Worksheet">
+<var>${data}</var>
+<arg>header=${TRUE}</arg>
+<status status="NOT RUN" starttime="20240318 14:16:39.041" endtime="20240318 14:16:39.041"/>
+</kw>
+<kw name="Create table">
+<var>${orders}</var>
+<arg>${data}</arg>
+<status status="NOT RUN" starttime="20240318 14:16:39.046" endtime="20240318 14:16:39.046"/>
+</kw>
+<kw name="Add table column">
+<arg>${orders}</arg>
+<arg>name=TOS</arg>
+<arg>values='nana'</arg>
+<status status="NOT RUN" starttime="20240318 14:16:39.053" endtime="20240318 14:16:39.053"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${orders}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240318 14:16:39.053" endtime="20240318 14:16:39.053"/>
+</kw>
+<status status="FAIL" starttime="20240318 14:16:39.023" endtime="20240318 14:16:39.053"/>
+</kw>
+<status status="FAIL" starttime="20240318 14:16:39.023" endtime="20240318 14:16:39.054">No keyword with name 'Open Workbook' found.</status>
+</test>
+<status status="FAIL" starttime="20240318 14:16:38.557" endtime="20240318 14:16:39.055"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="3" skip="0" id="s1" name="Test Case">Test Case</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240318 14:16:38.899" level="ERROR">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/web-demo/Webdemo-keyword.robot' on line 4: Importing library 'RPA.Excel.Files' failed: ModuleNotFoundError: No module named 'RPA'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python311.zip
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python3.11
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload
+  /usr/local/lib/python3.11/site-packages</msg>
+<msg timestamp="20240318 14:16:38.900" level="ERROR">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/web-demo/Webdemo-keyword.robot' on line 5: Importing library 'RPA.Tables' failed: ModuleNotFoundError: No module named 'RPA'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python311.zip
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python3.11
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload
+  /usr/local/lib/python3.11/site-packages</msg>
+</errors>
+</robot>
