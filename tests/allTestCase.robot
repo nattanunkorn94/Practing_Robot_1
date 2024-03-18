@@ -9,7 +9,7 @@ Resource    Collection-keyword.robot
 *** Test Cases ***
 Get Weather3Hours Should Success and return data
     ${params}=    Create Dictionary    type=json
-    ${resp}=    Get Weather3Hours   ${params}
+    ${resp}=    Get WebElements  ${params}
     Log    ${resp.content}
 
 

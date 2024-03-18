@@ -1,84 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240315 17:41:49.676" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240315 17:48:01.483" rpa="false" schemaversion="4">
 <suite id="s1" name="Practing Robot 1" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1">
 <suite id="s1-s1" name="Tests" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests">
-<suite id="s1-s1-s1" name="Api-Test" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/api-test">
-<suite id="s1-s1-s1-s1" name="apiTest" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/api-test/apiTest.robot">
-<test id="s1-s1-s1-s1-t1" name="POST TEST for reqres.on - 1" line="14">
+<suite id="s1-s1-s1" name="allTestCase" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/allTestCase.robot">
+<test id="s1-s1-s1-t1" name="Get Weather3Hours Should Success and return data" line="10">
 <kw name="Create Dictionary" library="BuiltIn">
-<var>${res}</var>
-<arg>email=eve.holt@reqres.in</arg>
-<arg>password=cityslicka type=json</arg>
+<var>${params}</var>
+<arg>type=json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240315 17:41:50.984" level="INFO">${res} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka type=json'}</msg>
-<status status="PASS" starttime="20240315 17:41:50.980" endtime="20240315 17:41:50.984"/>
+<msg timestamp="20240315 17:48:04.934" level="INFO">${params} = {'type': 'json'}</msg>
+<status status="PASS" starttime="20240315 17:48:04.932" endtime="20240315 17:48:04.934"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${resp}</var>
+<arg>${params}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20240315 17:48:04.936" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20240315 17:48:04.937" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20240315 17:48:04.935" endtime="20240315 17:48:04.942"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${res}</arg>
+<arg>${resp.content}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 17:41:50.987" level="INFO">{'email': 'eve.holt@reqres.in', 'password': 'cityslicka type=json'}</msg>
-<status status="PASS" starttime="20240315 17:41:50.986" endtime="20240315 17:41:50.988"/>
+<status status="NOT RUN" starttime="20240315 17:48:04.943" endtime="20240315 17:48:04.943"/>
 </kw>
-<kw name="POST" library="RequestsLibrary">
-<var>${response}</var>
-<arg>url=https://reqres.in/api/login</arg>
-<arg>json=${res}</arg>
-<doc>Sends a POST request.</doc>
-<msg timestamp="20240315 17:41:51.586" level="INFO">POST Request : url=https://reqres.in/api/login 
- path_url=/api/login 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
- body=b'{"email": "eve.holt@reqres.in", "password": "cityslicka type=json"}' 
- </msg>
-<msg timestamp="20240315 17:41:51.587" level="INFO">POST Response : url=https://reqres.in/api/login 
- status=200, reason=OK 
- headers={'Date': 'Fri, 15 Mar 2024 10:41:51 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '29', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1710499311&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=KsqaW1ZtXuYvtXXkN6bMfidK8mGn4O9BE8bommd%2FzCE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1710499311&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=KsqaW1ZtXuYvtXXkN6bMfidK8mGn4O9BE8bommd%2FzCE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '864be4b71a7f7dc1-BKK'} 
- body={"token":"QpwL5tke4Pnpja7X4"} 
- </msg>
-<msg timestamp="20240315 17:41:51.587" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20240315 17:41:50.989" endtime="20240315 17:41:51.589"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${response.json()}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 17:41:51.592" level="INFO">{'token': 'QpwL5tke4Pnpja7X4'}</msg>
-<status status="PASS" starttime="20240315 17:41:51.590" endtime="20240315 17:41:51.592"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${token}</var>
-<arg>${response.json()}[token]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240315 17:41:51.596" level="INFO">${token} = QpwL5tke4Pnpja7X4</msg>
-<status status="PASS" starttime="20240315 17:41:51.594" endtime="20240315 17:41:51.597"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${token}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240315 17:41:51.599" level="INFO">QpwL5tke4Pnpja7X4</msg>
-<status status="PASS" starttime="20240315 17:41:51.598" endtime="20240315 17:41:51.599"/>
-</kw>
-<status status="PASS" starttime="20240315 17:41:50.978" endtime="20240315 17:41:51.600"/>
+<status status="FAIL" starttime="20240315 17:48:04.931" endtime="20240315 17:48:04.944">No browser is open.</status>
 </test>
-<status status="PASS" starttime="20240315 17:41:49.800" endtime="20240315 17:41:51.602"/>
+<status status="FAIL" starttime="20240315 17:48:01.577" endtime="20240315 17:48:04.945"/>
 </suite>
-<status status="PASS" starttime="20240315 17:41:49.798" endtime="20240315 17:41:51.606"/>
+<status status="FAIL" starttime="20240315 17:48:01.566" endtime="20240315 17:48:04.947"/>
 </suite>
-<status status="PASS" starttime="20240315 17:41:49.793" endtime="20240315 17:41:51.610"/>
-</suite>
-<status status="PASS" starttime="20240315 17:41:49.686" endtime="20240315 17:41:51.615"/>
+<status status="FAIL" starttime="20240315 17:48:01.491" endtime="20240315 17:48:04.949"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Practing Robot 1.Tests</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Api-Test">Practing Robot 1.Tests.Api-Test</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="apiTest">Practing Robot 1.Tests.Api-Test.apiTest</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Practing Robot 1">Practing Robot 1</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Tests">Practing Robot 1.Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="allTestCase">Practing Robot 1.Tests.allTestCase</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20240315 17:48:02.510" level="ERROR">Error in file '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/allTestCase.robot' on line 3: Importing library 'HttpResponse.Library' failed: ModuleNotFoundError: No module named 'HttpResponse'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/lib
+  /Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/resources
+  /Users/cococake/.vscode/extensions/d-biehl.robotcode-0.78.0/bundled/libs
+  /Users/cococake/.vscode/extensions/d-biehl.robotcode-0.78.0/bundled/tool/robotcode
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python311.zip
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python3.11
+  /usr/local/Cellar/python@3.11/3.11.8/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload
+  /Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/.venv/lib/python3.11/site-packages</msg>
+<msg timestamp="20240315 17:48:03.959" level="WARN">Imported library '/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/.venv/lib/python3.11/site-packages/RPA/Desktop/__init__.py' contains no keywords.</msg>
 </errors>
 </robot>
