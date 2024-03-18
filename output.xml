@@ -1,78 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240318 17:09:22.519" rpa="false" schemaversion="4">
-<suite id="s1" name="Test Case" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/web-demo/test_case.robot">
-<test id="s1-t1" name="สมัคร Form สำเร็จ" line="29">
-<kw name="กรอกข้อมูล user 'username' 'firstname' 'lastname'" library="Webdemo-keyword" sourcename="กรอกข้อมูล user '${username}' '${firstname}' '${lastname}'">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>https://web-demo.qahive.com/form-demo</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240318 17:09:23.237" level="INFO">Opening browser 'firefox' to base url 'https://web-demo.qahive.com/form-demo'.</msg>
-<status status="PASS" starttime="20240318 17:09:23.236" endtime="20240318 17:09:28.995"/>
+<robot generator="Robot 6.1.1 (Python 3.11.8 on darwin)" generated="20240318 17:21:40.045" rpa="false" schemaversion="4">
+<suite id="s1" name="apiTest" source="/Users/cococake/Desktop/Odds_Mar/Practing_Robot_1/tests/api-test/apiTest.robot">
+<test id="s1-t1" name="Test Post Multiple Files" line="56">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>username=admin</arg>
+<arg>password=password123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240318 17:21:40.581" level="INFO">${body} = {'username': 'admin', 'password': 'password123'}</msg>
+<status status="PASS" starttime="20240318 17:21:40.581" endtime="20240318 17:21:40.584"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240318 17:09:28.996" endtime="20240318 17:09:29.491"/>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=https://restful-booker.herokuapp.com/auth</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20240318 17:21:42.031" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+ path_url=/auth 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "admin", "password": "password123"}' 
+ </msg>
+<msg timestamp="20240318 17:21:42.034" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1710757301&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=d6TU8Aw7t6iHIit57VYOtN%2BUkAfCeQD3KxT9SMrEdO4%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1710757301&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=d6TU8Aw7t6iHIit57VYOtN%2BUkAfCeQD3KxT9SMrEdO4%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Etag': 'W/"1b-SsxdE93lMCLw7q/mNwixcyQSTiA"', 'Date': 'Mon, 18 Mar 2024 10:21:41 GMT', 'Via': '1.1 vegur'} 
+ body={"token":"2d9796e5633d68d"} 
+ </msg>
+<msg timestamp="20240318 17:21:42.034" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240318 17:21:40.584" endtime="20240318 17:21:42.035"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//label[text()='username*']/following::input</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20240318 17:09:29.493" level="INFO">Typing text 'username' into text field '//label[text()='username*']/following::input'.</msg>
-<status status="PASS" starttime="20240318 17:09:29.492" endtime="20240318 17:09:29.801"/>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240318 17:21:42.037" level="INFO">{'token': '2d9796e5633d68d'}</msg>
+<status status="PASS" starttime="20240318 17:21:42.036" endtime="20240318 17:21:42.037"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//label[text()='firstname*']/following::input</arg>
-<arg>${firstname}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20240318 17:09:29.803" level="INFO">Typing text 'firstname' into text field '//label[text()='firstname*']/following::input'.</msg>
-<status status="PASS" starttime="20240318 17:09:29.802" endtime="20240318 17:09:29.929"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${token}</var>
+<arg>${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240318 17:21:42.039" level="INFO">${token} = 2d9796e5633d68d</msg>
+<status status="PASS" starttime="20240318 17:21:42.038" endtime="20240318 17:21:42.039"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//label[text()='lastname*']/following-sibling::input</arg>
-<arg>${lastname}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20240318 17:09:29.931" level="INFO">Typing text 'lastname' into text field '//label[text()='lastname*']/following-sibling::input'.</msg>
-<status status="PASS" starttime="20240318 17:09:29.930" endtime="20240318 17:09:30.042"/>
+<kw name="Log" library="BuiltIn">
+<arg>${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240318 17:21:42.040" level="INFO">2d9796e5633d68d</msg>
+<status status="PASS" starttime="20240318 17:21:42.039" endtime="20240318 17:21:42.041"/>
 </kw>
-<status status="PASS" starttime="20240318 17:09:23.236" endtime="20240318 17:09:30.042"/>
-</kw>
-<kw name="เลือกเพศ 'Female'" library="Webdemo-keyword" sourcename="เลือกเพศ '${gender}'">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//input[@value='${gender}']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240318 17:09:30.045" level="INFO">Clicking element '//input[@value='Female']'.</msg>
-<status status="PASS" starttime="20240318 17:09:30.044" endtime="20240318 17:09:30.275"/>
-</kw>
-<status status="PASS" starttime="20240318 17:09:30.043" endtime="20240318 17:09:30.275"/>
-</kw>
-<kw name="เลือกประเทศ 'Thailand'" library="Webdemo-keyword" sourcename="เลือกประเทศ '${country}'">
-<kw name="Select From List By Label" library="SeleniumLibrary">
-<arg>//label[@class='form-label']/following-sibling::select[1]</arg>
-<arg>${country}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20240318 17:09:30.277" level="INFO">Selecting options from selection list '//label[@class='form-label']/following-sibling::select[1]' by label Thailand.</msg>
-<status status="PASS" starttime="20240318 17:09:30.276" endtime="20240318 17:09:30.530"/>
-</kw>
-<status status="PASS" starttime="20240318 17:09:30.275" endtime="20240318 17:09:30.531"/>
-</kw>
-<kw name="เลือกเงื่อนไขและsubmit" library="Webdemo-keyword">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//input[@type='checkbox']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240318 17:09:30.533" level="INFO">Clicking element '//input[@type='checkbox']'.</msg>
-<status status="PASS" starttime="20240318 17:09:30.532" endtime="20240318 17:09:30.758"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//button[@type='submit']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240318 17:09:30.759" level="INFO">Clicking element '//button[@type='submit']'.</msg>
-<status status="PASS" starttime="20240318 17:09:30.758" endtime="20240318 17:09:31.016"/>
-</kw>
-<status status="PASS" starttime="20240318 17:09:30.531" endtime="20240318 17:09:31.017"/>
-</kw>
-<status status="PASS" starttime="20240318 17:09:23.235" endtime="20240318 17:09:31.018"/>
+<status status="PASS" starttime="20240318 17:21:40.580" endtime="20240318 17:21:42.041"/>
 </test>
-<status status="PASS" starttime="20240318 17:09:22.526" endtime="20240318 17:09:31.019"/>
+<status status="PASS" starttime="20240318 17:21:40.050" endtime="20240318 17:21:42.042"/>
 </suite>
 <statistics>
 <total>
@@ -81,7 +58,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test Case">Test Case</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="apiTest">apiTest</stat>
 </suite>
 </statistics>
 <errors>

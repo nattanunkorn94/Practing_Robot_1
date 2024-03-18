@@ -54,8 +54,8 @@ Get API Should Success and return data
 
 
 Test Post Multiple Files
-      ${file_1}=  Get File For Streaming Upload  files/randombytes.bin
-      ${file_2}=  Get File For Streaming Upload  files/randombytes.bin
-      ${files}=   Create Dictionary  randombytes1  ${file_1}  randombytes2  ${file_2}
-
-      ${resp}=    POST  https://someurl  files=${files}
+    ${body}    Create Dictionary    username=admin    password=password123
+    ${response}    POST    url=https://restful-booker.herokuapp.com/auth    json=${body}
+    Log    ${response.json()}
+       ${token}    Set Variable    ${response.json()}[token]
+    Log    ${token}
